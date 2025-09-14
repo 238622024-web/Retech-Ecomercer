@@ -1,0 +1,1415 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8">
+    <title>Meu Perfil - Loja Retech</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="perfil.css">
+    <link rel="stylesheet" href="style2.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', Arial, sans-serif;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #e9eef6 0%, #f5f6fa 60%, #dbeafe 100%);
+            background-attachment: fixed;
+        }
+        .main-wrapper {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 32px 0 0 0;
+        }
+        .perfil-container {
+            background: #fff;
+            border-radius: 18px;
+            box-shadow: 0 2px 16px #232f3e22;
+            padding: 40px 32px 32px 32px;
+            margin-bottom: 48px;
+        }
+        .perfil-header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 22px;
+        }
+        .perfil-avatar {
+            position: relative;
+            width: 80px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .perfil-avatar img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #ffd814;
+            box-shadow: 0 2px 8px #232f3e22;
+        }
+        .perfil-avatar span {
+            position: absolute;
+            bottom: 4px;
+            right: 4px;
+            background: #ffd814;
+            color: #232f3e;
+            border-radius: 50%;
+            padding: 7px 8px;
+            font-size: 1.1rem;
+            border: 2px solid #fff;
+            box-shadow: 0 2px 8px #ffd81433;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .perfil-avatar span:hover {
+            background: #f7ca00;
+        }
+        .perfil-info {
+            text-align: center;
+        }
+        .perfil-info h2 {
+            font-size: 1.3rem;
+            color: #232f3e;
+            font-weight: 700;
+            margin-bottom: 2px;
+        }
+        .perfil-info p {
+            color: #555;
+            font-size: 1rem;
+            margin-bottom: 0;
+        }
+        .perfil-form {
+            max-width: 320px;
+            margin: 0 auto 22px auto;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            background: #f5f6fa;
+            border-radius: 10px;
+            box-shadow: 0 1px 8px #232f3e11;
+            padding: 18px 14px 12px 14px;
+        }
+        .perfil-form label {
+            font-weight: 600;
+            color: #232f3e;
+            margin-bottom: 4px;
+            display: block;
+        }
+        .perfil-form input {
+            width: 100%;
+            padding: 10px 12px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            font-size: 1rem;
+            background: #fff;
+        }
+        .perfil-form .field-error {
+            color: #b12704;
+            font-size: 0.95rem;
+        }
+        .perfil-form button[type="submit"] {
+            background: linear-gradient(90deg, #ffd814 60%, #f7ca00 100%);
+            color: #232f3e;
+            border: none;
+            border-radius: 8px;
+            padding: 12px 32px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            box-shadow: 0 2px 8px #ffd81433;
+            cursor: pointer;
+            transition: background 0.2s, transform 0.2s;
+            margin-top: 10px;
+        }
+        .perfil-form button[type="submit"]:hover {
+            background: #ffd814;
+            transform: scale(1.04);
+        }
+        .perfil-form {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px 32px;
+            margin-bottom: 32px;
+        }
+        .perfil-form label {
+            font-weight: 600;
+            color: #232f3e;
+            margin-bottom: 4px;
+            display: block;
+        }
+        .perfil-form input {
+            width: 100%;
+            padding: 10px 12px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            font-size: 1rem;
+            background: #f5f6fa;
+        }
+        .perfil-form .field-error {
+            color: #b12704;
+            font-size: 0.95rem;
+        }
+        .perfil-form button[type="submit"] {
+            grid-column: 1 / -1;
+            background: linear-gradient(90deg, #ffd814 60%, #f7ca00 100%);
+            color: #232f3e;
+            border: none;
+            border-radius: 8px;
+            padding: 12px 32px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            box-shadow: 0 2px 8px #ffd81433;
+            cursor: pointer;
+            transition: background 0.2s, transform 0.2s;
+            margin-top: 10px;
+        }
+        .perfil-form button[type="submit"]:hover {
+            background: #ffd814;
+            transform: scale(1.04);
+        }
+        @media (max-width: 900px) {
+            .main-wrapper { padding: 0 2vw; }
+        }
+        @media (max-width: 700px) {
+            .main-wrapper { padding: 0 1vw; }
+            .perfil-container { padding: 18px 4vw; }
+            .perfil-header { flex-direction: column; gap: 18px; align-items: flex-start; }
+            .perfil-form { grid-template-columns: 1fr; gap: 18px; }
+        }
+        .section-card {
+            background: #fff;
+            border-radius: 16px;
+            box-shadow: 0 2px 16px #232f3e11;
+            padding: 32px 32px 24px 32px;
+            margin-bottom: 28px;
+        }
+        .section-card h3 {
+            color: #232f3e;
+            font-size: 1.3rem;
+            margin-bottom: 18px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .favoritos-lista, .pedidos-lista, .avaliacoes-lista {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 24px;
+            justify-content: center;
+            align-items: center;
+            min-height: 80px;
+        }
+        .favoritos-lista .favorito-card, .pedidos-lista .pedido-card, .avaliacoes-lista .avaliacao-card {
+            background: #f5f6fa;
+            border-radius: 12px;
+            box-shadow: 0 1px 8px #232f3e11;
+            padding: 18px 18px 12px 18px;
+            max-width: 220px;
+            flex: 1 1 180px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .favoritos-lista .favorito-card img {
+            width: 100%;
+            max-width: 120px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px #232f3e11;
+            margin-bottom: 10px;
+        }
+        .favoritos-lista .favorito-card .btn-ver {
+            margin-top: 10px;
+            background: #ffd814;
+            color: #232f3e;
+            border: none;
+            border-radius: 6px;
+            padding: 8px 18px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: background 0.2s;
+        }
+        .favoritos-lista .favorito-card .btn-ver:hover {
+            background: #f7ca00;
+        }
+        .btn-adicionar, .btn-baixar, .btn-excluir, .btn-salvar, .btn-cancelar {
+            background: #ffd814;
+            color: #232f3e;
+            border: none;
+            border-radius: 8px;
+            padding: 10px 22px;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: background 0.2s, transform 0.2s;
+        }
+        .btn-adicionar:hover, .btn-baixar:hover, .btn-excluir:hover, .btn-salvar:hover, .btn-cancelar:hover {
+            background: #f7ca00;
+            transform: scale(1.04);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-top">
+            <img src="Retech.jpeg" alt="Logo Loja Retech" class="logo">
+            <span class="brand">Loja <strong>Retech</strong></span>
+            <form class="search-bar" action="#" method="get">
+                <input type="text" placeholder="Buscar produtos..." name="q">
+                <button type="submit"><span>🔍</span></button>
+            </form>
+        </div>
+        <nav>
+                        <ul>
+                                <li><a href="index.html"><i class="fa-solid fa-house"></i> Início</a></li>
+                                <li><a href="produtos.html"><i class="fa-solid fa-bag-shopping"></i> Produtos</a></li>
+                                <li><a href="contato.html"><i class="fa-solid fa-phone"></i> Contato</a></li>
+                                <li><a href="sobre.html"><i class="fa-solid fa-circle-info"></i> Sobre</a></li>
+                                <li><a href="carrinho.html"><i class="fa-solid fa-cart-shopping"></i> Carrinho</a></li>
+                                <li><a href="Login.html"><i class="fa-solid fa-right-to-bracket"></i> Login</a></li>
+                                <li>
+                                    <form action="/logout" method="post" style="display:inline;">
+                                        <button type="submit" class="perfil-sair-nav"><i class="fa-solid fa-arrow-right-from-bracket" style="margin-right:8px;"></i><span style="font-weight:700;letter-spacing:0.5px;">Sair</span></button>
+                                    </form>
+                                </li>
+                        </ul>
+        </nav>
+    </header>
+    <main class="main-wrapper">
+        <section class="perfil-container">
+            <div class="perfil-header">
+                <div class="perfil-avatar" id="perfilAvatar">
+                    <img id="avatarImg" src="https://ui-avatars.com/api/?name=Usuário+Exemplo&background=232f3e&color=fff&size=128" alt="Avatar">
+                    <input type="file" id="inputAvatar" accept="image/*" style="display:none;">
+                    <span title="Alterar foto"><i class="fa-solid fa-camera"></i></span>
+                </div>
+                <div class="perfil-info">
+                    <h2>Usuário Exemplo</h2>
+                    <p><i class="fa-solid fa-envelope"></i> usuario@email.com</p>
+                </div>
+            </div>
+            <form class="perfil-form" id="perfilForm" autocomplete="off">
+                <div>
+                    <label for="nome">Nome:</label>
+                    <input type="text" id="nome" name="nome" value="Usuário Exemplo" required>
+                    <span class="field-error" id="erro-nome"></span>
+                </div>
+                <div>
+                    <label for="email">E-mail:</label>
+                    <input type="email" id="email" name="email" value="usuario@email.com" required>
+                    <span class="field-error" id="erro-email"></span>
+                </div>
+                <div style="position:relative;">
+                    <label for="senha">Senha:</label>
+                    <input type="password" id="senha" name="senha" value="" placeholder="********" minlength="6" style="padding-right:38px;">
+                    <button type="button" id="toggleSenha" style="position:absolute;right:8px;top:32px;background:none;border:none;cursor:pointer;" tabindex="-1"><i class="fa-solid fa-eye"></i></button>
+                    <span class="field-error" id="erro-senha"></span>
+                </div>
+                <button type="submit">Salvar Alterações</button>
+                <div id="perfil-feedback" style="display:none;margin-top:12px;padding:10px 12px;border-radius:8px;font-weight:600;text-align:center;"></div>
+            </form>
+        </section>
+        <section class="section-card avaliacoes-container">
+            <h3><i class="fa-solid fa-star" style="color:#ffd814;"></i> Minhas Avaliações</h3>
+            <div id="listaAvaliacoes" class="avaliacoes-lista">
+                <div style="text-align:center;color:#888;font-size:1.1rem;width:100%;padding:32px 0;">
+                    <i class="fa-regular fa-star" style="font-size:2.2rem;color:#ffd814;"></i><br>
+                    Você ainda não avaliou nenhum produto.<br>
+                </div>
+            </div>
+        </section>
+        <section class="section-card baixar-dados-container">
+            <h3><i class="fa-solid fa-download" style="color:#007bff;"></i> Baixar meus dados</h3>
+            <p style="color:#232f3e;font-size:1.05rem;margin-bottom:10px;">Faça o download de todos os seus dados salvos neste navegador em formato JSON.</p>
+            <button id="btnBaixarDados" class="btn-baixar"><i class="fa-solid fa-download"></i> Baixar meus dados</button>
+            <div id="feedbackBaixar" style="display:none;margin-top:10px;padding:10px 12px;border-radius:8px;font-weight:600;text-align:center;"></div>
+        </section>
+        <section class="section-card excluir-container">
+            <h3><i class="fa-solid fa-user-slash" style="color:#b12704;"></i> Excluir Conta</h3>
+            <p style="color:#b12704;font-size:1.05rem;margin-bottom:10px;">Esta ação é irreversível. Todos os seus dados serão removidos do navegador.</p>
+            <button id="btnExcluirConta" class="btn-excluir"><i class="fa-solid fa-user-slash"></i> Excluir minha conta</button>
+            <div id="feedbackExclusao" style="display:none;margin-top:10px;padding:10px 12px;border-radius:8px;font-weight:600;text-align:center;"></div>
+        </section>
+        <section class="section-card pedidos-container">
+            <h3><i class="fa-solid fa-box" style="color:#232f3e;"></i> Meus Pedidos</h3>
+            <div class="pedidos-lista">
+                <div style="text-align:center;color:#888;font-size:1.1rem;width:100%;padding:32px 0;">
+                    <i class="fa-regular fa-box" style="font-size:2.2rem;color:#ffd814;"></i><br>
+                    Você ainda não realizou nenhum pedido.<br>
+                </div>
+            </div>
+        </section>
+        <section class="section-card favoritos-container">
+            <h3><i class="fa-solid fa-heart" style="color:#ff9800;"></i> Meus Favoritos</h3>
+            <div class="favoritos-lista">
+                <div style="text-align:center;color:#888;font-size:1.1rem;width:100%;padding:32px 0;">
+                    <i class="fa-regular fa-heart" style="font-size:2.2rem;color:#ffd814;"></i><br>
+                    Nenhum produto favorito ainda.<br>
+                    Adicione produtos aos favoritos para vê-los aqui!
+                </div>
+            </div>
+        </section>
+        <section class="section-card enderecos-container">
+            <h3><i class="fa-solid fa-location-dot" style="color:#007bff;"></i> Meus Endereços</h3>
+            <div id="listaEnderecos">
+                <div style="text-align:center;color:#888;font-size:1.1rem;width:100%;padding:32px 0;">
+                    <i class="fa-regular fa-map" style="font-size:2.2rem;color:#ffd814;"></i><br>
+                    Nenhum endereço cadastrado.<br>
+                </div>
+            </div>
+            <button class="btn-adicionar" onclick="abrirModalEndereco()"><i class="fa-solid fa-plus"></i> Adicionar Novo Endereço</button>
+        </section>
+        <section class="section-card cartoes-container">
+            <h3><i class="fa-solid fa-credit-card" style="color:#007bff;"></i> Meus Cartões</h3>
+            <div id="listaCartoes">
+                <div style="text-align:center;color:#888;font-size:1.1rem;width:100%;padding:32px 0;">
+                    <i class="fa-regular fa-credit-card" style="font-size:2.2rem;color:#ffd814;"></i><br>
+                    Nenhum cartão cadastrado.<br>
+                </div>
+            </div>
+            <button class="btn-adicionar" onclick="abrirModalCartao()"><i class="fa-solid fa-plus"></i> Adicionar Novo Cartão</button>
+        </section>
+    </main>
+            </div>
+        </section>
+        <div id="modalCartao" class="modal-endereco" style="display:none;">
+            <div class="modal-content">
+                <h4 id="tituloModalCartao">Adicionar Cartão</h4>
+                <form id="formCartao" autocomplete="off" style="display:flex;flex-direction:column;gap:14px;">
+                    <input type="hidden" id="cartaoIndex">
+                    <div class="input-modal-group">
+                        <label for="cartaoNome"><i class="fa-solid fa-id-card"></i> Nome impresso no cartão</label>
+                        <input type="text" id="cartaoNome" placeholder="Digite o nome do titular" required maxlength="40">
+                    </div>
+                    <div class="input-modal-group">
+                        <label for="cartaoNumero"><i class="fa-solid fa-credit-card"></i> Número do cartão</label>
+                        <input type="text" id="cartaoNumero" placeholder="Digite o número do cartão" required pattern="\d{16}" maxlength="19" inputmode="numeric">
+                    </div>
+                    <div style="display:flex;gap:10px;">
+                        <div class="input-modal-group" style="flex:1;">
+                            <label for="cartaoValidade"><i class="fa-solid fa-calendar"></i> Validade (MM/AA)</label>
+                            <input type="text" id="cartaoValidade" placeholder="MM/AA" required pattern="(0[1-9]|1[0-2])\/\d{2}" maxlength="5">
+                        </div>
+                        <div class="input-modal-group" style="flex:1;">
+                            <label for="cartaoCVV"><i class="fa-solid fa-lock"></i> CVV</label>
+                            <input type="text" id="cartaoCVV" placeholder="CVV" required pattern="\d{3,4}" maxlength="4">
+                        </div>
+                    </div>
+                    <div style="margin-top:10px;display:flex;gap:10px;">
+                        <button type="submit" class="btn-salvar"><i class="fa-solid fa-floppy-disk"></i> Salvar</button>
+                        <button type="button" onclick="fecharModalCartao()" class="btn-cancelar"><i class="fa-solid fa-xmark"></i> Cancelar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div id="modalEndereco" class="modal-endereco" style="display:none;">
+            <div class="modal-content">
+                <h4 id="tituloModalEndereco">Adicionar Endereço</h4>
+                <form id="formEndereco" autocomplete="off" style="display:flex;flex-direction:column;gap:14px;">
+                    <input type="hidden" id="enderecoIndex">
+                    <div class="input-modal-group">
+                        <label for="enderecoRua"><i class="fa-solid fa-road"></i> Rua</label>
+                        <input type="text" id="enderecoRua" placeholder="Digite a rua" required maxlength="60">
+                    </div>
+                    <div class="input-modal-group">
+                        <label for="enderecoNumero"><i class="fa-solid fa-hashtag"></i> Número</label>
+                        <input type="text" id="enderecoNumero" placeholder="Digite o número" required maxlength="10">
+                    </div>
+                    <div class="input-modal-group">
+                        <label for="enderecoBairro"><i class="fa-solid fa-location-dot"></i> Bairro</label>
+                        <input type="text" id="enderecoBairro" placeholder="Digite o bairro" required maxlength="40">
+                    </div>
+                    <div class="input-modal-group">
+                        <label for="enderecoCidade"><i class="fa-solid fa-city"></i> Cidade</label>
+                        <input type="text" id="enderecoCidade" placeholder="Digite a cidade" required maxlength="40">
+                    </div>
+                    <div class="input-modal-group">
+                        <label for="enderecoEstado"><i class="fa-solid fa-flag"></i> Estado</label>
+                        <input type="text" id="enderecoEstado" placeholder="Digite o estado" required maxlength="20">
+                    </div>
+                    <div class="input-modal-group">
+                        <label for="enderecoCEP"><i class="fa-solid fa-barcode"></i> CEP</label>
+                        <input type="text" id="enderecoCEP" placeholder="00000-000" required pattern="\d{5}-?\d{3}" maxlength="9">
+                    </div>
+                    <div style="margin-top:10px;display:flex;gap:10px;">
+                        <button type="submit" class="btn-salvar"><i class="fa-solid fa-floppy-disk"></i> Salvar</button>
+                        <button type="button" onclick="fecharModalEndereco()" class="btn-cancelar"><i class="fa-solid fa-xmark"></i> Cancelar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <footer class="footer-retech-pro">
+            <div class="footer-pro-container">
+                <div class="footer-pro-row">
+                    <div class="footer-pro-col">
+                        <img src="Retech.jpeg" alt="Logo Retech" style="height:44px;border-radius:8px;margin-bottom:10px;">
+                        <p style="color:#ccc;font-size:1rem;max-width:220px;line-height:1.5;">Tecnologia, confiança e atendimento de excelência para você comprar com tranquilidade.</p>
+                    </div>
+                    <div class="footer-pro-col">
+                        <h4>Institucional</h4>
+                        <ul>
+                            <li><a href="sobre.html">Sobre nós</a></li>
+                            <li><a href="privacidade.html">Política de Privacidade</a></li>
+                            <li><a href="termos.html">Termos de Uso</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-pro-col">
+                        <h4>Atendimento</h4>
+                        <ul>
+                            <li><a href="contato.html">Fale Conosco</a></li>
+                            <li><a href="trocas.html">Trocas e Devoluções</a></li>
+                            <li><a href="faq.html">Perguntas Frequentes</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-pro-col">
+                        <h4>Pagamento Seguro</h4>
+                        <div class="footer-pagamentos">
+                            <img src="https://img.icons8.com/color/32/000000/visa.png" alt="Visa" title="Visa">
+                            <img src="https://img.icons8.com/color/32/000000/mastercard-logo.png" alt="Mastercard" title="Mastercard">
+                            <img src="https://img.icons8.com/color/32/000000/amex.png" alt="Amex" title="American Express">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Elo_card_logo.png/120px-Elo_card_logo.png" alt="Elo" title="Elo" style="height:32px;width:auto;background:#fff;border-radius:4px;padding:2px;">
+                            <img src="https://img.icons8.com/color/32/000000/pix.png" alt="Pix" title="Pix">
+                            <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Boleto" title="Boleto" style="height:32px;width:auto;background:#fff;border-radius:4px;padding:2px;">
+                        </div>
+                        <div class="footer-selo">
+                            <img src="https://img.icons8.com/fluency/32/000000/lock-2.png" alt="Site Seguro" title="Site Seguro">
+                            <span>Ambiente 100% Seguro</span>
+                        </div>
+                    </div>
+                    <div class="footer-pro-col footer-pro-social">
+                        <h4>Redes Sociais</h4>
+                        <div class="footer-social">
+                            <a href="https://www.instagram.com/" target="_blank" rel="noopener" title="Instagram"><img src="https://img.icons8.com/fluency/32/000000/instagram-new.png" alt="Instagram" style="vertical-align:middle;"></a>
+                            <a href="https://www.facebook.com/" target="_blank" rel="noopener" title="Facebook"><img src="https://img.icons8.com/fluency/32/000000/facebook-new.png" alt="Facebook" style="vertical-align:middle;"></a>
+                            <a href="https://wa.me/5511999999999" target="_blank" rel="noopener" title="WhatsApp"><img src="https://img.icons8.com/fluency/32/000000/whatsapp.png" alt="WhatsApp" style="vertical-align:middle;"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-pro-copy">&copy; 2025 Retech. Todos os direitos reservados.</div>
+        </footer>
+    </footer>
+<style>
+.avaliacoes-lista {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+.avaliacao-card {
+    background: linear-gradient(90deg, #f5f6fa 80%, #fffbe6 100%);
+    border-radius: 14px;
+    padding: 18px 20px 16px 20px;
+    margin-bottom: 0;
+    position: relative;
+    box-shadow: 0 4px 18px #232f3e18, 0 1.5px 4px #ffd81422;
+    display: flex;
+    align-items: flex-start;
+    gap: 18px;
+    transition: box-shadow 0.2s, transform 0.2s;
+}
+.avaliacao-card:hover {
+    box-shadow: 0 8px 32px #ffd81433, 0 2px 8px #232f3e22;
+    transform: translateY(-2px) scale(1.02);
+}
+.avaliacao-avatar {
+    width: 54px;
+    height: 54px;
+    border-radius: 12px;
+    background: #fff;
+    box-shadow: 0 1px 6px #232f3e11;
+    object-fit: cover;
+    margin-right: 6px;
+}
+.avaliacao-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+.avaliacao-produto {
+    font-weight: 800;
+    color: #232f3e;
+    font-size: 1.13rem;
+    margin-bottom: 2px;
+    letter-spacing: 0.2px;
+}
+.avaliacao-estrelas {
+    color: #ffd814;
+    font-size: 1.18rem;
+    margin-bottom: 2px;
+    letter-spacing: 1.5px;
+    user-select: none;
+    transition: color 0.2s;
+}
+.avaliacao-card:hover .avaliacao-estrelas {
+    color: #f7ca00;
+}
+.avaliacao-comentario {
+    color: #232f3e;
+    font-size: 1.04rem;
+    margin-bottom: 0;
+    margin-top: 2px;
+    line-height: 1.5;
+}
+.avaliacao-data {
+    color: #888;
+    font-size: 0.97rem;
+    position: absolute;
+    top: 16px;
+    right: 22px;
+}
+@media (max-width: 600px) {
+    .avaliacao-card {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 14px 10px 12px 10px;
+        gap: 10px;
+    }
+    .avaliacao-avatar {
+        margin-bottom: 6px;
+        margin-right: 0;
+    }
+    .avaliacao-data {
+        position: static;
+        margin-top: 6px;
+        right: unset;
+        top: unset;
+    }
+}
+/* Avaliações */
+.avaliacoes-container {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px #232f3e11;
+    padding: 18px 18px 18px 18px;
+    margin-bottom: 18px;
+}
+.avaliacoes-container h3 {
+    color: #232f3e;
+    font-size: 1.15rem;
+    margin-bottom: 10px;
+}
+.avaliacao-card {
+    background: #f5f6fa;
+    border-radius: 8px;
+    padding: 12px 14px;
+    margin-bottom: 10px;
+    position: relative;
+    box-shadow: 0 1px 4px #232f3e11;
+}
+.avaliacao-produto {
+    font-weight: 700;
+    color: #232f3e;
+    font-size: 1.08rem;
+    margin-bottom: 2px;
+}
+.avaliacao-estrelas {
+    color: #ffd814;
+    font-size: 1.1rem;
+    margin-bottom: 2px;
+}
+.avaliacao-comentario {
+    color: #232f3e;
+    font-size: 1.01rem;
+    margin-bottom: 0;
+}
+.avaliacao-data {
+    color: #888;
+    font-size: 0.97rem;
+    position: absolute;
+    top: 10px;
+    right: 14px;
+}
+/* Baixar dados pessoais */
+.baixar-dados-container {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px #232f3e11;
+    padding: 18px 18px 18px 18px;
+    margin-bottom: 18px;
+}
+.baixar-dados-container h3 {
+    color: #232f3e;
+    font-size: 1.15rem;
+    margin-bottom: 8px;
+}
+.btn-baixar {
+    background: #059669;
+    color: #fff;
+    font-weight: 700;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 22px;
+    font-size: 1.08rem;
+    cursor: pointer;
+    box-shadow: 0 2px 8px #05966933;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: background 0.2s, color 0.2s, transform 0.2s;
+}
+.btn-baixar:hover {
+    background: #fff;
+    color: #059669;
+    border: 2px solid #059669;
+    transform: scale(1.04);
+}
+/* Exclusão de conta */
+.excluir-container {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px #232f3e11;
+    padding: 18px 18px 18px 18px;
+    margin-bottom: 18px;
+}
+.excluir-container h3 {
+    color: #b12704;
+    font-size: 1.15rem;
+    margin-bottom: 8px;
+}
+.btn-excluir {
+    background: #b12704;
+    color: #fff;
+    font-weight: 700;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 22px;
+    font-size: 1.08rem;
+    cursor: pointer;
+    box-shadow: 0 2px 8px #b1270433;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: background 0.2s, color 0.2s, transform 0.2s;
+}
+.btn-excluir:hover {
+    background: #fff;
+    color: #b12704;
+    border: 2px solid #b12704;
+    transform: scale(1.04);
+}
+/* Inputs do modal de endereço */
+.input-modal-group {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+.input-modal-group label {
+    font-weight: 600;
+    color: #232f3e;
+    margin-bottom: 2px;
+    font-size: 1.04rem;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+.input-modal-group input[type="text"] {
+    padding: 10px 12px;
+    border-radius: 7px;
+    border: 1.5px solid #e3e6e8;
+    font-size: 1.05rem;
+    background: #f9fafb;
+    color: #232f3e;
+    box-shadow: 0 1px 4px #232f3e11;
+    transition: border 0.2s, box-shadow 0.2s;
+    outline: none;
+}
+.input-modal-group input[type="text"]:focus {
+    border: 1.5px solid #ffd814;
+    box-shadow: 0 2px 8px #ffd81433;
+}
+.modal-content button {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 1.05rem;
+}
+/* Modernização do perfil */
+.perfil-container {
+    max-width: 700px;
+    margin: 40px auto 0 auto;
+    background: #fff;
+    border-radius: 18px;
+    box-shadow: 0 6px 32px #232f3e22;
+    padding: 44px 32px 36px 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    position: relative;
+    z-index: 2;
+}
+.perfil-header {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    margin-bottom: 12px;
+    position: relative;
+}
+.perfil-avatar {
+    width: 90px;
+    height: 90px;
+    background: #f5f6fa;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3.2rem;
+    color: #ffd814;
+    box-shadow: 0 2px 8px #232f3e11;
+    position: relative;
+    border: 3px solid #ffd814;
+    overflow: hidden;
+}
+.perfil-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+.perfil-avatar-edit {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background: #232f3e;
+    color: #ffd814;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    border: 2px solid #fff;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+}
+.perfil-avatar-edit:hover {
+    background: #ffd814;
+    color: #232f3e;
+}
+.perfil-info h2 {
+    color: #232f3e;
+    font-size: 1.6rem;
+    margin-bottom: 4px;
+    font-weight: 800;
+}
+.perfil-info p {
+    color: #232f3e;
+    font-size: 1.05rem;
+    margin: 0;
+}
+ .perfil-sair-nav {
+    background: #ffd814;
+    color: #232f3e;
+    border: none;
+    border-radius: 6px;
+    padding: 10px 22px;
+    font-size: 1rem;
+    font-weight: 700;
+    box-shadow: 0 2px 8px #ffd81433;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s, transform 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-left: 8px;
+}
+.perfil-sair-nav:hover {
+    background: #232f3e;
+    color: #ffd814;
+    transform: scale(1.05);
+}
+.perfil-form {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    background: #f5f6fa;
+    border-radius: 12px;
+    padding: 28px 24px 18px 24px;
+    box-shadow: 0 2px 8px #232f3e11;
+    max-width: 420px;
+    margin: 0 auto;
+    position: relative;
+}
+.perfil-form label {
+    font-weight: 600;
+    color: #232f3e;
+    margin-bottom: 4px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.perfil-form .input-group {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+.perfil-form .input-icon {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #ffd814;
+    font-size: 1.1rem;
+    pointer-events: none;
+}
+.perfil-form input[type="text"],
+.perfil-form input[type="email"],
+.perfil-form input[type="password"] {
+    width: 100%;
+    padding: 12px 14px 12px 38px;
+    border-radius: 8px;
+    border: 1.5px solid #e3e6e8;
+    font-size: 1.08rem;
+    background: #fff;
+    color: #232f3e;
+    margin-bottom: 6px;
+    box-shadow: 0 1px 4px #232f3e11;
+    transition: border 0.2s, box-shadow 0.2s;
+    outline: none;
+    position: relative;
+}
+.perfil-form input:focus {
+    border: 1.5px solid #ffd814;
+    box-shadow: 0 2px 8px #ffd81433;
+}
+.perfil-form button[type="submit"] {
+    background: linear-gradient(90deg, #ffd814 60%, #f7ca00 100%);
+    color: #232f3e;
+    border: none;
+    border-radius: 8px;
+    padding: 16px 0;
+    font-size: 1.18rem;
+    font-weight: 800;
+    cursor: pointer;
+    margin-top: 10px;
+    box-shadow: 0 2px 8px #ffd81433;
+    transition: background 0.2s, color 0.2s, transform 0.2s;
+    width: 100%;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+.perfil-form button[type="submit"]:hover {
+    background: #232f3e;
+    color: #ffd814;
+    transform: scale(1.03);
+}
+.perfil-form .perfil-feedback {
+    margin-top: 10px;
+    background: #059669;
+    color: #fff;
+    padding: 10px 12px;
+    border-radius: 8px;
+    font-weight: 700;
+    text-align: center;
+    font-size: 1rem;
+    display: none;
+}
+.pedidos-container {
+    max-width: 700px;
+    margin: 32px auto 40px auto;
+    background: #f5f6fa;
+    border-radius: 12px;
+    box-shadow: 0 1px 8px #232f3e11;
+    padding: 32px 32px 24px 32px;
+}
+.pedidos-container h3 {
+    color: #232f3e;
+    font-size: 1.3rem;
+    margin-bottom: 18px;
+}
+.pedidos-lista {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+.pedido-card {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px #232f3e11;
+    padding: 18px 18px 10px 18px;
+    margin-bottom: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    transition: box-shadow 0.2s, transform 0.2s;
+}
+.pedido-card:hover {
+    box-shadow: 0 8px 24px #232f3e22;
+    transform: translateY(-2px) scale(1.02);
+}
+.pedido-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    justify-content: space-between;
+}
+.pedido-id {
+    font-weight: 700;
+    color: #232f3e;
+}
+.pedido-status {
+    font-size: 1rem;
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-weight: 600;
+    display: inline-block;
+}
+.pedido-status.entregue {
+    background: #e6f9ed;
+    color: #059669;
+}
+.pedido-status.em-transito {
+    background: #fffbe6;
+    color: #b45309;
+}
+.pedido-status.pendente {
+    background: #fff0f0;
+    color: #b12704;
+}
+.pedido-info {
+    color: #232f3e;
+    font-size: 1.05rem;
+}
+.pedido-total {
+    color: #232f3e;
+    font-size: 1.08rem;
+    font-weight: 700;
+    text-align: right;
+}
+.field-error {
+    color: #dc3545;
+    font-size: 0.97rem;
+    position: absolute;
+    left: 0;
+    bottom: -18px;
+    min-height: 16px;
+    font-weight: 500;
+    letter-spacing: 0.1px;
+    z-index: 10;
+}
+.perfil-avatar:hover span { background: #232f3e; color: #ffd814; transition: 0.2s; }
+.btn-detalhes { background:none;border:none;color:#007bff;cursor:pointer;font-size:1rem;display:flex;align-items:center;gap:4px; }
+.pedido-detalhes { background:#f5f6fa;border-radius:8px;padding:12px 14px;margin-top:10px;display:none; }
+.btn-repetir { background:#ffd814;color:#232f3e;font-weight:700;border:none;border-radius:8px;padding:8px 18px;font-size:1rem;cursor:pointer;margin-top:10px; }
+.btn-repetir:hover { background:#232f3e;color:#ffd814; }
+.enderecos-container { background:#fff;border-radius:10px;box-shadow:0 2px 8px #232f3e11;padding:18px 18px 10px 18px;margin-bottom:18px; }
+.endereco-card { background:#f5f6fa;border-radius:8px;padding:12px 14px;margin-bottom:10px;position:relative; }
+.endereco-actions { position:absolute;top:10px;right:10px;display:flex;gap:8px; }
+.btn-editar, .btn-remover { background:none;border:none;cursor:pointer;color:#007bff;font-size:1.1rem; }
+.btn-remover { color:#dc3545; }
+.btn-adicionar { background:#ffd814;color:#232f3e;font-weight:700;border:none;border-radius:8px;padding:8px 18px;font-size:1rem;cursor:pointer;margin-top:10px; }
+.btn-adicionar:hover { background:#232f3e;color:#ffd814; }
+.modal-endereco { position:fixed;top:0;left:0;width:100vw;height:100vh;background:rgba(0,0,0,0.18);z-index:9999;display:flex;align-items:center;justify-content:center; }
+.modal-content { background:#fff;padding:28px 22px;border-radius:12px;box-shadow:0 4px 32px #232f3e22;min-width:320px;max-width:90vw; }
+.btn-salvar { background:#059669;color:#fff;font-weight:700;border:none;border-radius:8px;padding:8px 18px;font-size:1rem;cursor:pointer; }
+.btn-cancelar { background:#ccc;color:#232f3e;font-weight:700;border:none;border-radius:8px;padding:8px 18px;font-size:1rem;cursor:pointer; }
+@media (max-width: 800px) {
+    .perfil-container, .pedidos-container {
+        max-width: 98vw;
+        padding: 18px 6vw 18px 6vw;
+    }
+    .perfil-form {
+        max-width: 98vw;
+        padding: 18px 6vw 18px 6vw;
+    }
+}
+</style>
+<style>
+.cartoes-container { background:#fff;border-radius:10px;box-shadow:0 2px 8px #232f3e11;padding:18px 18px 10px 18px;margin-bottom:18px; }
+.cartao-card { background:#f5f6fa;border-radius:8px;padding:12px 14px;margin-bottom:10px;position:relative;display:flex;align-items:center;gap:18px; }
+.cartao-icone { font-size:2rem;margin-right:10px;color:#ffd814; }
+.cartao-info { flex:1; }
+.cartao-numero { font-family:monospace;font-size:1.1rem;letter-spacing:2px;color:#232f3e; }
+.cartao-nome { color:#232f3e;font-size:1rem;font-weight:600; }
+.cartao-validade { color:#888;font-size:0.98rem;margin-left:8px; }
+.cartao-actions { position:absolute;top:10px;right:10px;display:flex;gap:8px; }
+.btn-editar, .btn-remover { background:none;border:none;cursor:pointer;color:#007bff;font-size:1.1rem; }
+.btn-remover { color:#dc3545; }
+.btn-adicionar { background:#ffd814;color:#232f3e;font-weight:700;border:none;border-radius:8px;padding:8px 18px;font-size:1rem;cursor:pointer;margin-top:10px; }
+.btn-adicionar:hover { background:#232f3e;color:#ffd814; }
+</style>
+</style>
+<script>
+// Simulação de avaliações salvas (pode ser integrado ao backend futuramente)
+function renderizarAvaliacoes() {
+    const lista = document.getElementById('listaAvaliacoes');
+    let avaliacoes = [];
+    try {
+        avaliacoes = JSON.parse(localStorage.getItem('avaliacoesPerfil')||'[]');
+    } catch { avaliacoes = []; }
+    if(avaliacoes.length === 0) {
+        lista.innerHTML = '<div style="color:#888;">Nenhuma avaliação realizada ainda.</div>';
+        return;
+    }
+    lista.innerHTML = '';
+    avaliacoes.forEach(av => {
+        const div = document.createElement('div');
+        div.className = 'avaliacao-card';
+        // Avatar do produto (simulado ou inicial)
+        let avatar = av.imagemProduto || 'https://ui-avatars.com/api/?name=' + encodeURIComponent(av.produto) + '&background=ffd814&color=232f3e&size=64';
+        div.innerHTML = `
+            <img class="avaliacao-avatar" src="${avatar}" alt="${av.produto}">
+            <div class="avaliacao-info">
+                <div class="avaliacao-produto">${av.produto}</div>
+                <div class="avaliacao-estrelas">${'★'.repeat(av.nota)}${'☆'.repeat(5-av.nota)}</div>
+                <div class="avaliacao-comentario">${av.comentario || ''}</div>
+            </div>
+            <div class="avaliacao-data">${av.data || ''}</div>
+        `;
+        lista.appendChild(div);
+    });
+}
+window.addEventListener('DOMContentLoaded', renderizarAvaliacoes);
+// Download dos dados pessoais (LGPD)
+document.getElementById('btnBaixarDados').addEventListener('click', function() {
+    const dados = {
+        avatar: localStorage.getItem('avatarPerfil') || null,
+        enderecos: JSON.parse(localStorage.getItem('enderecosPerfil')||'[]'),
+        cartoes: JSON.parse(localStorage.getItem('cartoesPerfil')||'[]'),
+        preferencias: JSON.parse(localStorage.getItem('preferenciasPerfil')||'{}')
+    };
+    const blob = new Blob([JSON.stringify(dados, null, 2)], {type: 'application/json'});
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'meus-dados-retech.json';
+    document.body.appendChild(a);
+    a.click();
+    setTimeout(()=>{
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+    }, 100);
+    const feedback = document.getElementById('feedbackBaixar');
+    feedback.textContent = 'Download iniciado!';
+    feedback.style.background = '#059669';
+    feedback.style.color = '#fff';
+    feedback.style.display = 'block';
+    setTimeout(()=>{ feedback.style.display = 'none'; }, 2000);
+});
+// Exclusão de conta (remove todos os dados do perfil do localStorage)
+document.getElementById('btnExcluirConta').addEventListener('click', function() {
+    if(confirm('Tem certeza que deseja excluir sua conta? Esta ação é irreversível!')) {
+        localStorage.removeItem('avatarPerfil');
+        localStorage.removeItem('enderecosPerfil');
+        localStorage.removeItem('cartoesPerfil');
+        localStorage.removeItem('preferenciasPerfil');
+        const feedback = document.getElementById('feedbackExclusao');
+        feedback.textContent = 'Conta excluída com sucesso! Todos os dados foram removidos.';
+        feedback.style.background = '#059669';
+        feedback.style.color = '#fff';
+        feedback.style.display = 'block';
+        setTimeout(()=>{ feedback.style.display = 'none'; location.reload(); }, 2500);
+    }
+});
+// Avatar editável (visual)
+document.addEventListener('DOMContentLoaded', function() {
+  const avatar = document.querySelector('.perfil-avatar');
+  if(avatar) {
+    const editBtn = document.createElement('span');
+    editBtn.className = 'perfil-avatar-edit';
+    editBtn.title = 'Alterar foto';
+    editBtn.innerHTML = '<i class="fa-solid fa-camera"></i>';
+    avatar.appendChild(editBtn);
+    editBtn.addEventListener('click', function() {
+      alert('Funcionalidade de upload de foto pode ser implementada aqui!');
+    });
+  }
+  // Ícones nos campos do formulário
+  const icons = {
+    nome: 'fa-user',
+    email: 'fa-envelope',
+    senha: 'fa-lock',
+  };
+  Object.keys(icons).forEach(id => {
+    const input = document.getElementById(id);
+    if(input) {
+      const group = document.createElement('div');
+      group.className = 'input-group';
+      input.parentNode.insertBefore(group, input);
+      group.appendChild(input);
+      const icon = document.createElement('i');
+      icon.className = `fa-solid ${icons[id]} input-icon`;
+      group.appendChild(icon);
+    }
+  });
+  // Feedback visual ao salvar
+  const form = document.querySelector('.perfil-form');
+  if(form) {
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      let feedback = form.querySelector('.perfil-feedback');
+      if(!feedback) {
+        feedback = document.createElement('div');
+        feedback.className = 'perfil-feedback';
+        form.appendChild(feedback);
+      }
+      feedback.textContent = 'Alterações salvas com sucesso!';
+      feedback.style.display = 'block';
+      setTimeout(()=>{ feedback.style.display = 'none'; }, 2500);
+    });
+  }
+});
+// Validação e feedback do perfil
+const perfilForm = document.getElementById('perfilForm');
+const feedback = document.getElementById('perfil-feedback');
+const camposPerfil = [
+    {id: 'nome', msg: 'Preencha o nome.'},
+    {id: 'email', msg: 'Informe um e-mail válido.'},
+    {id: 'senha', msg: 'Mínimo 6 caracteres.'}
+];
+camposPerfil.forEach(campo => {
+    const input = document.getElementById(campo.id);
+    const erro = document.getElementById('erro-' + campo.id);
+    input.addEventListener('input', function() {
+        if (!input.checkValidity()) {
+            erro.textContent = campo.msg;
+        } else {
+            erro.textContent = '';
+        }
+    });
+    input.addEventListener('blur', function() {
+        if (!input.checkValidity()) {
+            erro.textContent = campo.msg;
+        }
+    });
+});
+perfilForm.addEventListener('submit', function(e) {
+    e.preventDefault();
+    let valido = true;
+    camposPerfil.forEach(campo => {
+        const input = document.getElementById(campo.id);
+        const erro = document.getElementById('erro-' + campo.id);
+        if (!input.checkValidity()) {
+            erro.textContent = campo.msg;
+            valido = false;
+        }
+    });
+    if (!valido) return;
+    feedback.textContent = 'Alterações salvas com sucesso!';
+    feedback.style.background = '#059669';
+    feedback.style.color = '#fff';
+    feedback.style.display = 'block';
+    setTimeout(()=>{ feedback.style.display = 'none'; }, 2500);
+});
+// Mostrar/ocultar senha
+const btnToggleSenha = document.getElementById('toggleSenha');
+const inputSenha = document.getElementById('senha');
+btnToggleSenha.addEventListener('click', function() {
+    if(inputSenha.type === 'password') {
+        inputSenha.type = 'text';
+        btnToggleSenha.innerHTML = '<i class="fa-solid fa-eye-slash"></i>';
+    } else {
+        inputSenha.type = 'password';
+        btnToggleSenha.innerHTML = '<i class="fa-solid fa-eye"></i>';
+    }
+});
+// Upload e preview do avatar
+const perfilAvatar = document.getElementById('perfilAvatar');
+const inputAvatar = document.getElementById('inputAvatar');
+const avatarImg = document.getElementById('avatarImg');
+perfilAvatar.addEventListener('click', function() {
+    inputAvatar.click();
+});
+inputAvatar.addEventListener('change', function(e) {
+    const file = e.target.files[0];
+    if(file && file.type.startsWith('image/')) {
+        const reader = new FileReader();
+        reader.onload = function(ev) {
+            avatarImg.src = ev.target.result;
+            localStorage.setItem('avatarPerfil', ev.target.result);
+        };
+        reader.readAsDataURL(file);
+    }
+});
+// Carregar avatar salvo
+window.addEventListener('DOMContentLoaded', function() {
+    const avatarSalvo = localStorage.getItem('avatarPerfil');
+    if(avatarSalvo) avatarImg.src = avatarSalvo;
+});
+function toggleDetalhes(btn) {
+    const detalhes = btn.parentElement.parentElement.querySelector('.pedido-detalhes');
+    if(detalhes.style.display === 'none' || detalhes.style.display === '') {
+        detalhes.style.display = 'block';
+        btn.innerHTML = '<i class="fa-solid fa-chevron-up"></i> Ocultar';
+    } else {
+        detalhes.style.display = 'none';
+        btn.innerHTML = '<i class="fa-solid fa-chevron-down"></i> Detalhes';
+    }
+}
+// Endereços salvos no localStorage
+function renderizarEnderecos() {
+    const lista = document.getElementById('listaEnderecos');
+    const enderecos = JSON.parse(localStorage.getItem('enderecosPerfil')||'[]');
+    lista.innerHTML = '';
+    if(enderecos.length === 0) {
+        lista.innerHTML = '<div style="color:#888;">Nenhum endereço cadastrado.</div>';
+        return;
+    }
+    enderecos.forEach((end, i) => {
+        const div = document.createElement('div');
+        div.className = 'endereco-card';
+        div.innerHTML = `
+            <div><b>${end.rua}, ${end.numero}</b> - ${end.bairro}</div>
+            <div>${end.cidade} - ${end.estado} | CEP: ${end.cep}</div>
+            <div class="endereco-actions">
+                <button class="btn-editar" onclick="editarEndereco(${i})"><i class="fa-solid fa-pen"></i></button>
+                <button class="btn-remover" onclick="removerEndereco(${i})"><i class="fa-solid fa-trash"></i></button>
+            </div>
+        `;
+        lista.appendChild(div);
+    });
+}
+function abrirModalEndereco() {
+    document.getElementById('formEndereco').reset();
+    document.getElementById('enderecoIndex').value = '';
+    document.getElementById('tituloModalEndereco').textContent = 'Adicionar Endereço';
+    document.getElementById('modalEndereco').style.display = 'flex';
+}
+function fecharModalEndereco() {
+    document.getElementById('modalEndereco').style.display = 'none';
+}
+document.getElementById('formEndereco').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const enderecos = JSON.parse(localStorage.getItem('enderecosPerfil')||'[]');
+    const index = document.getElementById('enderecoIndex').value;
+    const novo = {
+        rua: document.getElementById('enderecoRua').value,
+        numero: document.getElementById('enderecoNumero').value,
+        bairro: document.getElementById('enderecoBairro').value,
+        cidade: document.getElementById('enderecoCidade').value,
+        estado: document.getElementById('enderecoEstado').value,
+        cep: document.getElementById('enderecoCEP').value
+    };
+    if(index === '') {
+        enderecos.push(novo);
+    } else {
+        enderecos[index] = novo;
+    }
+    localStorage.setItem('enderecosPerfil', JSON.stringify(enderecos));
+    fecharModalEndereco();
+    renderizarEnderecos();
+});
+function editarEndereco(i) {
+    const enderecos = JSON.parse(localStorage.getItem('enderecosPerfil')||'[]');
+    const end = enderecos[i];
+    document.getElementById('enderecoIndex').value = i;
+    document.getElementById('enderecoRua').value = end.rua;
+    document.getElementById('enderecoNumero').value = end.numero;
+    document.getElementById('enderecoBairro').value = end.bairro;
+    document.getElementById('enderecoCidade').value = end.cidade;
+    document.getElementById('enderecoEstado').value = end.estado;
+    document.getElementById('enderecoCEP').value = end.cep;
+    document.getElementById('tituloModalEndereco').textContent = 'Editar Endereço';
+    document.getElementById('modalEndereco').style.display = 'flex';
+}
+function removerEndereco(i) {
+    if(!confirm('Remover este endereço?')) return;
+    const enderecos = JSON.parse(localStorage.getItem('enderecosPerfil')||'[]');
+    enderecos.splice(i,1);
+    localStorage.setItem('enderecosPerfil', JSON.stringify(enderecos));
+    renderizarEnderecos();
+}
+window.addEventListener('DOMContentLoaded', renderizarEnderecos);
+</script>
+<script>
+// Cartões salvos no localStorage
+function mascararNumeroCartao(numero) {
+    return '**** **** **** ' + numero.slice(-4);
+}
+function detectarBandeira(numero) {
+    if(/^4/.test(numero)) return 'fa-cc-visa';
+    if(/^5[1-5]/.test(numero)) return 'fa-cc-mastercard';
+    if(/^3[47]/.test(numero)) return 'fa-cc-amex';
+    if(/^6/.test(numero)) return 'fa-cc-discover';
+    if(/^3(0|6|8)/.test(numero)) return 'fa-cc-diners-club';
+    if(/^35/.test(numero)) return 'fa-cc-jcb';
+    return 'fa-credit-card';
+}
+function renderizarCartoes() {
+    const lista = document.getElementById('listaCartoes');
+    const cartoes = JSON.parse(localStorage.getItem('cartoesPerfil')||'[]');
+    lista.innerHTML = '';
+    if(cartoes.length === 0) {
+        lista.innerHTML = '<div style="color:#888;">Nenhum cartão cadastrado.</div>';
+        return;
+    }
+    cartoes.forEach((cart, i) => {
+        const div = document.createElement('div');
+        div.className = 'cartao-card';
+        const icone = detectarBandeira(cart.numero.replace(/\D/g, ''));
+        div.innerHTML = `
+            <span class="cartao-icone"><i class="fa-brands ${icone}"></i></span>
+            <div class="cartao-info">
+                <div class="cartao-numero">${mascararNumeroCartao(cart.numero.replace(/\D/g, ''))}</div>
+                <div class="cartao-nome">${cart.nome} <span class="cartao-validade">Val: ${cart.validade}</span></div>
+            </div>
+            <div class="cartao-actions">
+                <button class="btn-editar" onclick="editarCartao(${i})"><i class="fa-solid fa-pen"></i></button>
+                <button class="btn-remover" onclick="removerCartao(${i})"><i class="fa-solid fa-trash"></i></button>
+            </div>
+        `;
+        lista.appendChild(div);
+    });
+}
+function abrirModalCartao() {
+    document.getElementById('formCartao').reset();
+    document.getElementById('cartaoIndex').value = '';
+    document.getElementById('tituloModalCartao').textContent = 'Adicionar Cartão';
+    document.getElementById('modalCartao').style.display = 'flex';
+}
+function fecharModalCartao() {
+    document.getElementById('modalCartao').style.display = 'none';
+}
+document.getElementById('formCartao').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const cartoes = JSON.parse(localStorage.getItem('cartoesPerfil')||'[]');
+    const index = document.getElementById('cartaoIndex').value;
+    let numero = document.getElementById('cartaoNumero').value.replace(/\D/g, '');
+    if(numero.length !== 16) {
+        alert('Número do cartão inválido.');
+        return;
+    }
+    const novo = {
+        nome: document.getElementById('cartaoNome').value,
+        numero: numero,
+        validade: document.getElementById('cartaoValidade').value,
+        cvv: document.getElementById('cartaoCVV').value
+    };
+    if(index === '') {
+        cartoes.push(novo);
+    } else {
+        cartoes[index] = novo;
+    }
+    localStorage.setItem('cartoesPerfil', JSON.stringify(cartoes));
+    fecharModalCartao();
+    renderizarCartoes();
+});
+function editarCartao(i) {
+    const cartoes = JSON.parse(localStorage.getItem('cartoesPerfil')||'[]');
+    const cart = cartoes[i];
+    document.getElementById('cartaoIndex').value = i;
+    document.getElementById('cartaoNome').value = cart.nome;
+    document.getElementById('cartaoNumero').value = cart.numero;
+    document.getElementById('cartaoValidade').value = cart.validade;
+    document.getElementById('cartaoCVV').value = cart.cvv;
+    document.getElementById('tituloModalCartao').textContent = 'Editar Cartão';
+    document.getElementById('modalCartao').style.display = 'flex';
+}
+function removerCartao(i) {
+    if(!confirm('Remover este cartão?')) return;
+    const cartoes = JSON.parse(localStorage.getItem('cartoesPerfil')||'[]');
+    cartoes.splice(i,1);
+    localStorage.setItem('cartoesPerfil', JSON.stringify(cartoes));
+    renderizarCartoes();
+}
+window.addEventListener('DOMContentLoaded', renderizarCartoes);
+</script>
+</script>
+</body>
+</html>

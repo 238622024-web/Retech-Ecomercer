@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Produto - Admin Retech</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- CSS extraído para style2.css -->
+</head>
+<body>
+    <header>
+        <div class="header-top">
+            <img src="Retech.jpeg" alt="Logo Loja Retech" class="logo">
+            <span class="brand">Loja <strong>Retech</strong></span>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html"><i class="fa-solid fa-house"></i> Inicio</a></li>
+                <li><a href="adm.html"><i class="fa-solid fa-user-shield"></i> Painel Admin</a></li>
+                <li><a href="produtos-admin.html" class="active"><i class="fa-solid fa-box"></i> Produtos</a></li>
+            </ul>
+        </nav>
+        <script src="editar-produto.js"></script>
+            <input type="number" id="preco" name="preco" min="0" step="0.01" value="49.90" required>
+
+            <label for="estoque">Estoque</label>
+            <input type="number" id="estoque" name="estoque" min="0" value="20" required>
+
+            <label for="imagem">Alterar Imagem</label>
+            <input type="file" id="imagem" name="imagem" accept="image/*">
+
+            <label for="descricao">Descrição</label>
+            <textarea id="descricao" name="descricao" rows="3">Camiseta confortável de algodão premium.</textarea>
+
+            <button type="submit"><i class="fa-solid fa-check"></i> Salvar Alterações</button>
+        <script>
+            document.getElementById("formEditarProduto").addEventListener("submit", async (e) => {
+            e.preventDefault();
+            const id = 1; // 🔹 aqui você pode pegar da URL (?id=123)
+            const formData = new FormData(e.target);
+
+            const resp = await fetch(`http://localhost:3000/api/produtos/${id}`, {
+                method: "PUT",
+                body: formData
+            });
+
+            const data = await resp.json();
+            document.getElementById("alerta-sucesso").style.display = "block";
+        });
+        </script>
+ 
+        <script>
+        document.getElementById('formEditarProduto').onsubmit = function(e) {
+            e.preventDefault();
+            document.getElementById('alerta-sucesso').style.display = 'block';
+            setTimeout(()=>{ document.getElementById('alerta-sucesso').style.display = 'none'; }, 2000);
+        };
+        </script>
+        </form>
+    </main>
+</body>
+</html>

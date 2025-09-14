@@ -1,0 +1,455 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8">
+    <title>Produtos de Tecnologia | Loja Retech</title>
+    <meta name="description" content="Confira ofertas e novidades em produtos de tecnologia Retech: acessórios, periféricos, monitores, SSD, cadeiras gamer e muito mais. Qualidade, preço e inovação para seu setup!">
+    <meta name="keywords" content="tecnologia, produtos, acessórios, periféricos, monitores, SSD, cadeiras gamer, Retech, loja, ofertas, comprar, ecommerce">
+    <meta name="robots" content="index, follow">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="Produtos de Tecnologia | Loja Retech">
+    <meta property="og:description" content="Ofertas e novidades em produtos de tecnologia Retech. Tudo para seu setup!">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.sualoja.com/produtos.html">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=400&q=80">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- CSS Externo -->
+    <link rel="stylesheet" href="produtos.css">
+    <link rel="icon" type="image/png" href="Retech.jpeg">
+    <style>
+    .carrinho-badge {
+        background: var(--cor-destaque, #ffd814);
+        color: var(--cor-principal, #232f3e);
+        font-size: 0.85rem;
+        font-weight: bold;
+        border-radius: 999px;
+        padding: 2px 8px;
+        margin-left: 4px;
+        vertical-align: middle;
+        box-shadow: 0 1px 4px #ffd81444;
+        position: relative;
+        top: -2px;
+        transition: all 0.2s;
+        min-width: 22px;
+        text-align: center;
+        display: inline-block;
+    }
+    </style>
+</head>
+<body>
+    <header id="main-header">
+        <div class="header-top">
+            <img src="Retech.jpeg" alt="Logo Loja Retech" class="logo" tabindex="0">
+            <span class="brand">Loja <strong>Retech</strong></span>
+            <form class="search-bar" action="#" method="get" role="search">
+                <input type="text" placeholder="Buscar produtos..." name="q" aria-label="Buscar produtos">
+                <button type="submit" aria-label="Buscar"><span>🔍</span></button>
+            </form>
+            <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="main-nav">
+                <span class="hamburger"></span>
+            </button>
+        </div>
+        <nav id="main-nav" class="nav-bar" aria-label="Menu principal">
+            <div class="header-container">
+                <ul>
+                    <li><a href="index.html"><i class="fa-solid fa-house"></i> Início</a></li>
+                    <li><a href="produtos.html" class="active"><i class="fa-solid fa-bag-shopping"></i> Produtos</a></li>
+                    <li><a href="contato.html"><i class="fa-solid fa-phone"></i> Contato</a></li>
+                    <li><a href="sobre.html"><i class="fa-solid fa-circle-info"></i> Sobre</a></li>
+                    <li>
+                        <a href="carrinho.html" class="carrinho-link">
+                            <i class="fa-solid fa-cart-shopping"></i> Carrinho
+                            <span id="carrinho-contador" class="carrinho-badge" aria-label="Itens no carrinho" style="display:none;">0</span>
+                        </a>
+                    </li>
+                    <li><a href="Login.html"><i class="fa-solid fa-right-to-bracket"></i> Login</a></li>
+                    <li>
+                     <form action="/logout" method="post" style="display:inline;">
+                        <button type="submit" class="btn-sair-nav" aria-label="Sair">
+                            <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                            <span>Sair</span>
+                        </button>
+                    </form>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container">
+        <!-- Seção de Filtros -->
+        <form id="filtros-produtos" class="filtros-produtos">
+            <input type="text" id="busca-produto" placeholder="Buscar produtos..." name="q" class="filtro-input">
+            <select id="filtro-categoria" class="filtro-select">
+                <option value="">Todas categorias</option>
+                <option value="Acessórios">Acessórios</option>
+                <option value="Periféricos">Periféricos</option>
+                <option value="Armazenamento">Armazenamento</option>
+                <option value="Monitores">Monitores</option>
+                <option value="Cadeiras">Cadeiras</option>
+                <option value="Redes">Redes</option>
+            </select>
+            <select id="filtro-marca" class="filtro-select">
+                <option value="">Todas marcas</option>
+                <option value="Retech">Retech</option>
+            </select>
+            <input type="number" id="preco-min" placeholder="Preço mínimo" min="0" class="filtro-input filtro-preco">
+            <input type="number" id="preco-max" placeholder="Preço máximo" min="0" class="filtro-input filtro-preco">
+            <select id="ordenar-produtos" class="filtro-select">
+                <option value="">Ordenar por</option>
+                <option value="preco-asc">Menor preço</option>
+                <option value="preco-desc">Maior preço</option>
+                <option value="nome-az">Nome A-Z</option>
+                <option value="nome-za">Nome Z-A</option>
+            </select>
+        </form>
+
+        <!-- Grid de Produtos -->
+        <div class="produtos-grid">
+
+            <!-- Card 1 -->
+            <div class="produto-card promocao">
+                <div class="selo-oferta">Oferta</div>
+                <div class="produto-img">
+                    <img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=400&q=80" alt="Headset Gamer RGB">
+                </div>
+                <div class="produto-info">
+                    <span class="produto-categoria">Acessórios</span>
+                    <h3 class="produto-nome">Headset Gamer RGB</h3>
+                    <div class="produto-precos">
+                        <span class="preco-antigo">R$ 299,90</span>
+                        <p class="preco-novo destaque">R$ 219,90</p>
+                    </div>
+                    <button class="btn-comprar">Adicionar ao Carrinho</button>
+                    <span class="produto-marca" style="display:none;">Retech</span>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="produto-card">
+                <div class="produto-img">
+                    <img src="https://images.unsplash.com/photo-1512499617640-c2f999098c01?auto=format&fit=crop&w=400&q=80" alt="Mouse Sem Fio Retech">
+                </div>
+                <div class="produto-info">
+                    <span class="produto-categoria">Periféricos</span>
+                    <h3 class="produto-nome">Mouse Sem Fio Retech</h3>
+                    <div class="produto-precos">
+                        <span class="preco-antigo">R$ 99,90</span>
+                        <p class="preco-novo">R$ 69,90</p>
+                    </div>
+                    <button class="btn-comprar">Adicionar ao Carrinho</button>
+                    <span class="produto-marca" style="display:none;">Retech</span>
+                </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="produto-card promocao">
+                <div class="selo-oferta">Oferta</div>
+                <div class="produto-img">
+                    <img src="https://images.unsplash.com/photo-1465101178521-c1a9136a3b41?auto=format&fit=crop&w=400&q=80" alt="Teclado Mecânico LED">
+                </div>
+                <div class="produto-info">
+                    <span class="produto-categoria">Periféricos</span>
+                    <h3 class="produto-nome">Teclado Mecânico LED</h3>
+                    <div class="produto-precos">
+                        <span class="preco-antigo">R$ 249,90</span>
+                        <p class="preco-novo destaque">R$ 189,90</p>
+                    </div>
+                    <button class="btn-comprar">Adicionar ao Carrinho</button>
+                    <span class="produto-marca" style="display:none;">Retech</span>
+                </div>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="produto-card">
+                <div class="produto-img">
+                    <img src="https://images.unsplash.com/photo-1519864600265-abb23847ef2c?auto=format&fit=crop&w=400&q=80" alt="Webcam Full HD 1080p">
+                </div>
+                <div class="produto-info">
+                    <span class="produto-categoria">Acessórios</span>
+                    <h3 class="produto-nome">Webcam Full HD 1080p</h3>
+                    <div class="produto-precos">
+                        <span class="preco-antigo">R$ 199,90</span>
+                        <p class="preco-novo">R$ 149,90</p>
+                    </div>
+                    <button class="btn-comprar">Adicionar ao Carrinho</button>
+                    <span class="produto-marca" style="display:none;">Retech</span>
+                </div>
+            </div>
+
+            <!-- Card 5 -->
+            <div class="produto-card">
+                <div class="produto-img">
+                    <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=400&q=80" alt="SSD 480GB Retech">
+                </div>
+                <div class="produto-info">
+                    <span class="produto-categoria">Armazenamento</span>
+                    <h3 class="produto-nome">SSD 480GB Retech</h3>
+                    <div class="produto-precos">
+                        <span class="preco-antigo">R$ 399,90</span>
+                        <p class="preco-novo">R$ 299,90</p>
+                    </div>
+                    <button class="btn-comprar">Adicionar ao Carrinho</button>
+                    <span class="produto-marca" style="display:none;">Retech</span>
+                </div>
+            </div>
+
+
+            <!-- Card Novo 1 -->
+            <div class="produto-card">
+                <div class="produto-img">
+                    <img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=400&q=80" alt="Teclado Slim Wireless">
+                </div>
+                <div class="produto-info">
+                    <span class="produto-categoria">Periféricos</span>
+                    <h3 class="produto-nome">Teclado Slim Wireless</h3>
+                    <div class="produto-precos">
+                        <span class="preco-antigo">R$ 179,90</span>
+                        <p class="preco-novo">R$ 129,90</p>
+                    </div>
+                    <button class="btn-comprar">Adicionar ao Carrinho</button>
+                    <span class="produto-marca" style="display:none;">Retech</span>
+                </div>
+            </div>
+
+            <!-- Card Novo 2 -->
+            <div class="produto-card">
+                <div class="produto-img">
+                    <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=400&q=80" alt="Caixa de Som Portátil Bluetooth">
+                </div>
+                <div class="produto-info">
+                    <span class="produto-categoria">Acessórios</span>
+                    <h3 class="produto-nome">Caixa de Som Portátil Bluetooth</h3>
+                    <div class="produto-precos">
+                        <span class="preco-antigo">R$ 159,90</span>
+                        <p class="preco-novo">R$ 109,90</p>
+                    </div>
+                    <button class="btn-comprar">Adicionar ao Carrinho</button>
+                    <span class="produto-marca" style="display:none;">Retech</span>
+                </div>
+            </div>
+
+            <!-- Card 7 -->
+            <div class="produto-card promocao">
+                <div class="selo-oferta">Oferta</div>
+                <div class="produto-img">
+                    <img src="https://images.unsplash.com/photo-1589156229697-356c3e218758?auto=format&fit=crop&w=400&q=80" alt="Cadeira Gamer Retech">
+                </div>
+                <div class="produto-info">
+                    <span class="produto-categoria">Cadeiras</span>
+                    <h3 class="produto-nome">Cadeira Gamer Retech</h3>
+                    <div class="produto-precos">
+                        <span class="preco-antigo">R$ 1.299,90</span>
+                        <p class="preco-novo destaque">R$ 1.099,90</p>
+                    </div>
+                    <button class="btn-comprar">Adicionar ao Carrinho</button>
+                    <span class="produto-marca" style="display:none;">Retech</span>
+                </div>
+            </div>
+
+            <!-- Card 8 -->
+            <div class="produto-card">
+                <div class="produto-img">
+                    <img src="https://images.unsplash.com/photo-1620799140408-7c6a0a0d0d80?auto=format&fit=crop&w=400&q=80" alt="Hub USB 3.0 4 Portas">
+                </div>
+                <div class="produto-info">
+                    <span class="produto-categoria">Acessórios</span>
+                    <h3 class="produto-nome">Hub USB 3.0 4 Portas</h3>
+                    <div class="produto-precos">
+                        <span class="preco-antigo">R$ 89,90</span>
+                        <p class="preco-novo">R$ 59,90</p>
+                    </div>
+                    <button class="btn-comprar">Adicionar ao Carrinho</button>
+                    <span class="produto-marca" style="display:none;">Retech</span>
+                </div>
+            </div>
+
+
+            <!-- Card 9 -->
+            <div class="produto-card">
+                <div class="produto-img">
+                    <img src="https://images.unsplash.com/photo-1591348278462-23b5a83a54a2?auto=format&fit=crop&w=400&q=80" alt="Roteador Wi-Fi Dual Band">
+                </div>
+                <div class="produto-info">
+                    <span class="produto-categoria">Redes</span>
+                    <h3 class="produto-nome">Roteador Wi-Fi Dual Band</h3>
+                    <div class="produto-precos">
+                        <span class="preco-antigo">R$ 299,90</span>
+                        <p class="preco-novo">R$ 219,90</p>
+                    </div>
+                    <button class="btn-comprar">Adicionar ao Carrinho</button>
+                    <span class="produto-marca" style="display:none;">Retech</span>
+                </div>
+            </div>
+
+            <!-- Card 10 -->
+            <div class="produto-card">
+                <div class="produto-img">
+                    <img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=400&q=80" alt="Fone Bluetooth TWS">
+                </div>
+                <div class="produto-info">
+                    <span class="produto-categoria">Acessórios</span>
+                    <h3 class="produto-nome">Fone Bluetooth TWS</h3>
+                    <div class="produto-precos">
+                        <span class="preco-antigo">R$ 199,90</span>
+                        <p class="preco-novo">R$ 139,90</p>
+                    </div>
+                    <button class="btn-comprar">Adicionar ao Carrinho</button>
+                    <span class="produto-marca" style="display:none;">Retech</span>
+                </div>
+            </div>
+
+            <!-- Card 11 -->
+            <div class="produto-card promocao">
+                <div class="selo-oferta">Oferta</div>
+                <div class="produto-img">
+                    <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=400&q=80" alt="Notebook Ultrafino 15''">
+                </div>
+                <div class="produto-info">
+                    <span class="produto-categoria">Notebooks</span>
+                    <h3 class="produto-nome">Notebook Ultrafino 15''</h3>
+                    <div class="produto-precos">
+                        <span class="preco-antigo">R$ 3.999,90</span>
+                        <p class="preco-novo destaque">R$ 3.299,90</p>
+                    </div>
+                    <button class="btn-comprar">Adicionar ao Carrinho</button>
+                    <span class="produto-marca" style="display:none;">Retech</span>
+                </div>
+            </div>
+
+            <!-- Card 12 -->
+            <div class="produto-card">
+                <div class="produto-img">
+                    <img src="https://images.unsplash.com/photo-1503602642458-232111445657?auto=format&fit=crop&w=400&q=80" alt="Smartwatch Fitness">
+                </div>
+                <div class="produto-info">
+                    <span class="produto-categoria">Acessórios</span>
+                    <h3 class="produto-nome">Smartwatch Fitness</h3>
+                    <div class="produto-precos">
+                        <span class="preco-antigo">R$ 499,90</span>
+                        <p class="preco-novo">R$ 349,90</p>
+                    </div>
+                    <button class="btn-comprar">Adicionar ao Carrinho</button>
+                    <span class="produto-marca" style="display:none;">Retech</span>
+                </div>
+            </div>
+
+            <!-- Card 13 -->
+            <div class="produto-card">
+                <div class="produto-img">
+                    <img src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=400&q=80" alt="Câmera de Segurança Wi-Fi">
+                </div>
+                <div class="produto-info">
+                    <span class="produto-categoria">Segurança</span>
+                    <h3 class="produto-nome">Câmera de Segurança Wi-Fi</h3>
+                    <div class="produto-precos">
+                        <span class="preco-antigo">R$ 299,90</span>
+                        <p class="preco-novo">R$ 199,90</p>
+                    </div>
+                    <button class="btn-comprar">Adicionar ao Carrinho</button>
+                    <span class="produto-marca" style="display:none;">Retech</span>
+                </div>
+            </div>
+
+            <!-- Card 14 -->
+            <div class="produto-card promocao">
+                <div class="selo-oferta">Oferta</div>
+                <div class="produto-img">
+                    <img src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=400&q=80" alt="Carregador Turbo USB">
+                </div>
+                <div class="produto-info">
+                    <span class="produto-categoria">Acessórios</span>
+                    <h3 class="produto-nome">Carregador Turbo USB</h3>
+                    <div class="produto-precos">
+                        <span class="preco-antigo">R$ 89,90</span>
+                        <p class="preco-novo destaque">R$ 59,90</p>
+                    </div>
+                    <button class="btn-comprar">Adicionar ao Carrinho</button>
+                    <span class="produto-marca" style="display:none;">Retech</span>
+                </div>
+            </div>
+
+            <!-- Card 15 -->
+            <div class="produto-card">
+                <div class="produto-img">
+                    <img src="https://images.unsplash.com/photo-1519864600265-abb23847ef2c?auto=format&fit=crop&w=400&q=80" alt="Caixa de Som Bluetooth">
+                </div>
+                <div class="produto-info">
+                    <span class="produto-categoria">Acessórios</span>
+                    <h3 class="produto-nome">Caixa de Som Bluetooth</h3>
+                    <div class="produto-precos">
+                        <span class="preco-antigo">R$ 249,90</span>
+                        <p class="preco-novo">R$ 179,90</p>
+                    </div>
+                    <button class="btn-comprar">Adicionar ao Carrinho</button>
+                    <span class="produto-marca" style="display:none;">Retech</span>
+                </div>
+            </div>
+
+        </div>
+    </main>
+    
+    <!-- Feedback visual ao adicionar ao carrinho -->
+    <div id="feedback-carrinho" class="feedback-carrinho" aria-live="polite" style="display:none;">
+        <i class="fa-solid fa-check-circle"></i> Produto adicionado ao carrinho!
+    </div>
+
+    <a href="https://wa.me/5511999999999" target="_blank" class="whatsapp-btn" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+
+    <footer class="footer-content">
+        <footer class="footer-retech-pro">
+            <div class="footer-pro-container">
+                <div class="footer-pro-row">
+                    <div class="footer-pro-col">
+                        <img src="Retech.jpeg" alt="Logo Retech" style="height:44px;border-radius:8px;margin-bottom:10px;">
+                        <p style="color:#ccc;font-size:1rem;max-width:220px;line-height:1.5;">Tecnologia, confiança e atendimento de excelência para você comprar com tranquilidade.</p>
+                    </div>
+                    <div class="footer-pro-col">
+                        <h4>Institucional</h4>
+                        <ul>
+                            <li><a href="sobre.html">Sobre nós</a></li>
+                            <li><a href="#">Política de Privacidade</a></li>
+                            <li><a href="#">Termos de Uso</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-pro-col">
+                        <h4>Atendimento</h4>
+                        <ul>
+                            <li><a href="contato.html">Fale Conosco</a></li>
+                            <li><a href="#">Trocas e Devoluções</a></li>
+                            <li><a href="#">Perguntas Frequentes</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-pro-col">
+                        <h4>Pagamento Seguro</h4>
+                        <div class="footer-pagamentos">
+                            <img src="https://img.icons8.com/color/32/000000/visa.png" alt="Visa" title="Visa">
+                            <img src="https://img.icons8.com/color/32/000000/mastercard-logo.png" alt="Mastercard" title="Mastercard">
+                            <img src="https://img.icons8.com/color/32/000000/amex.png" alt="Amex" title="American Express">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Elo_card_logo.png/120px-Elo_card_logo.png" alt="Elo" title="Elo" style="height:32px;width:auto;background:#fff;border-radius:4px;padding:2px;">
+                            <img src="https://img.icons8.com/color/32/000000/pix.png" alt="Pix" title="Pix">
+                            <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Boleto" title="Boleto" style="height:32px;width:auto;background:#fff;border-radius:4px;padding:2px;">
+                        </div>
+                        <div class="footer-selo">
+                            <img src="https://img.icons8.com/fluency/32/000000/lock-2.png" alt="Site Seguro" title="Site Seguro">
+                            <span>Ambiente 100% Seguro</span>
+                        </div>
+                    </div>
+                    <div class="footer-pro-col footer-pro-social">
+                        <h4>Redes Sociais</h4>
+                        <div class="footer-social">
+                            <a href="https://www.instagram.com/" target="_blank" rel="noopener" title="Instagram"><img src="https://img.icons8.com/fluency/32/000000/instagram-new.png" alt="Instagram" style="vertical-align:middle;"></a>
+                            <a href="https://www.facebook.com/" target="_blank" rel="noopener" title="Facebook"><img src="https://img.icons8.com/fluency/32/000000/facebook-new.png" alt="Facebook" style="vertical-align:middle;"></a>
+                            <a href="https://wa.me/5511999999999" target="_blank" rel="noopener" title="WhatsApp"><img src="https://img.icons8.com/fluency/32/000000/whatsapp.png" alt="WhatsApp" style="vertical-align:middle;"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-pro-copy">&copy; 2025 Retech. Todos os direitos reservados.</div>
+        </footer>
+    </footer>
+
+    
+    <script src="produtos.js"></script>
+    <script src="contador-carrinho.js"></script>
+</body>
+</html>

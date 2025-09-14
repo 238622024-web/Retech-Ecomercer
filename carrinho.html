@@ -1,0 +1,345 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8">
+    <title>Carrinho - Loja Retech</title>
+    <link rel="stylesheet" href="carrinho.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/png" href="Retech.jpeg">
+</head>
+<body class="carrinho-page">
+    <header id="main-header">
+        <div class="header-top">
+            <img src="Retech.jpeg" alt="Logo Loja Retech" class="logo" tabindex="0">
+            <span class="brand">Loja <strong>Retech</strong></span>
+            <form class="search-bar" action="#" method="get" role="search">
+                <input type="text" placeholder="Buscar produtos..." name="q" aria-label="Buscar produtos">
+                <button type="submit" aria-label="Buscar"><span>🔍</span></button>
+            </form>
+            <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="main-nav">
+                <span class="hamburger"></span>
+            </button>
+        </div>
+        <nav id="main-nav" class="nav-bar" aria-label="Menu principal">
+            <ul>
+                <li><a href="index.html"><i class="fa-solid fa-house"></i> Início</a></li>
+                <li><a href="produtos.html"><i class="fa-solid fa-bag-shopping"></i> Produtos</a></li>
+                <li><a href="contato.html"><i class="fa-solid fa-phone"></i> Contato</a></li>
+                <li><a href="sobre.html"><i class="fa-solid fa-circle-info"></i> Sobre</a></li>
+                <li><a href="carrinho.html"><i class="fa-solid fa-cart-shopping"></i> Carrinho</a></li>
+                <li><a href="Login.html"><i class="fa-solid fa-right-to-bracket"></i> Login</a></li>
+                <li>
+                    <form action="/logout" method="post" style="display:inline;">
+                        <button type="submit" class="btn-sair-nav" aria-label="Sair">
+                            <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                            <span>Sair</span>
+                        </button>
+                    </form>
+                </li>
+            </ul>
+        </nav>
+        <a href="https://wa.me/5511999999999" target="_blank" class="whatsapp-btn" style="position:fixed;bottom:24px;right:24px;z-index:9999;background:#25d366;color:#fff;padding:16px 20px;border-radius:50%;box-shadow:0 2px 12px rgba(0,0,0,0.18);font-size:2rem;display:flex;align-items:center;justify-content:center;" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+    </header>
+    <main>
+        <section class="cart-section">
+            <h2 class="cart-title"><i class="fa-solid fa-cart-shopping"></i> Seu Carrinho</h2>
+            <div class="cart-table-container">
+                <table class="cart-table">
+                    <thead>
+                        <tr>
+                            <th>Produto</th>
+                            <th>Preço</th>
+                            <th>Quantidade</th>
+                            <th>Subtotal</th>
+                            <th>Ação</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="cart-produto">
+                                <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=400&q=80" alt="Camiseta">
+                                <span>Camiseta</span>
+                            </td>
+                            <td>R$ 49,90</td>
+                            <td><input type="number" value="1" min="1" class="cart-qtd"></td>
+                            <td class="cart-subtotal">R$ 49,90</td>
+                            <td><button class="cart-remove"><i class="fa-solid fa-trash"></i> Remover</button></td>
+                        </tr>
+                        <tr>
+                            <td class="cart-produto">
+                                <img src="https://images.unsplash.com/photo-1514995669114-d1c1b7a83a48?auto=format&fit=crop&w=400&q=80" alt="Calça Jeans">
+                                <span>Calça Jeans</span>
+                            </td>
+                            <td>R$ 89,90</td>
+                            <td><input type="number" value="2" min="1" class="cart-qtd"></td>
+                            <td class="cart-subtotal">R$ 179,80</td>
+                            <td><button class="cart-remove"><i class="fa-solid fa-trash"></i> Remover</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <aside class="cart-summary">
+                <h3>Resumo do Pedido</h3>
+                <div>Subtotal: <span id="cart-subtotal">R$ 229,70</span></div>
+                <div>Frete: <span id="cart-frete">R$ 15,00</span></div>
+                <div>Desconto: <span id="cart-desconto">R$ 0,00</span></div>
+                <div class="cart-cupom-section" style="margin:10px 0;">
+                    <input type="text" id="cart-cupom-input" placeholder="Cupom de desconto" maxlength="20" style="width:60%;padding:6px 8px;border-radius:6px;border:1px solid #ccc;">
+                    <button type="button" id="cart-aplicar-cupom" style="padding:6px 12px;margin-left:6px;background:#232f3e;color:#fff;border:none;border-radius:6px;">Aplicar</button>
+                    <span id="cart-cupom-feedback" style="display:block;font-size:0.95em;margin-top:4px;"></span>
+                </div>
+                <div class="cart-total">Total: <span id="cart-total">R$ 244,70</span></div>
+                <button class="cart-finalizar">Finalizar Compra <i class="fa-solid fa-arrow-right"></i></button>
+                <button id="cart-limpar" style="margin-top:12px;background:#ffd814;color:#232f3e;border:none;border-radius:6px;padding:10px 0;font-size:1rem;font-weight:700;cursor:pointer;width:100%;box-shadow:0 2px 8px #ffd81433;">Limpar Carrinho <i class="fa-solid fa-trash"></i></button>
+            </aside>
+        </section>
+    </main>
+    <footer class="footer-retech-pro">
+        <div class="footer-pro-container">
+            <div class="footer-pro-row">
+                <div class="footer-pro-col">
+                    <img src="Retech.jpeg" alt="Logo Retech" style="height:44px;border-radius:8px;margin-bottom:10px;">
+                    <p style="color:#ccc;font-size:1rem;max-width:220px;line-height:1.5;">Tecnologia, confiança e atendimento de excelência para você comprar com tranquilidade.</p>
+                </div>
+                <div class="footer-pro-col">
+                    <h4>Institucional</h4>
+                    <ul>
+                        <li><a href="sobre.html">Sobre nós</a></li>
+                        <li><a href="#">Política de Privacidade</a></li>
+                        <li><a href="#">Termos de Uso</a></li>
+                    </ul>
+                </div>
+                <div class="footer-pro-col">
+                    <h4>Atendimento</h4>
+                    <ul>
+                        <li><a href="contato.html">Fale Conosco</a></li>
+                        <li><a href="#">Trocas e Devoluções</a></li>
+                        <li><a href="#">Perguntas Frequentes</a></li>
+                    </ul>
+                </div>
+                <div class="footer-pro-col">
+                    <h4>Pagamento Seguro</h4>
+                    <div class="footer-pagamentos">
+                        <img src="https://img.icons8.com/color/32/000000/visa.png" alt="Visa" title="Visa">
+                        <img src="https://img.icons8.com/color/32/000000/mastercard-logo.png" alt="Mastercard" title="Mastercard">
+                        <img src="https://img.icons8.com/color/32/000000/amex.png" alt="Amex" title="American Express">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Elo_card_logo.png/120px-Elo_card_logo.png" alt="Elo" title="Elo" style="height:32px;width:auto;background:#fff;border-radius:4px;padding:2px;">
+                        <img src="https://img.icons8.com/color/32/000000/pix.png" alt="Pix" title="Pix">
+                        <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Boleto" title="Boleto" style="height:32px;width:auto;background:#fff;border-radius:4px;padding:2px;">
+                    </div>
+                    <div class="footer-selo">
+                        <img src="https://img.icons8.com/fluency/32/000000/lock-2.png" alt="Site Seguro" title="Site Seguro">
+                        <span>Ambiente 100% Seguro</span>
+                    </div>
+                </div>
+                <div class="footer-pro-col footer-pro-social">
+                    <h4>Redes Sociais</h4>
+                    <div class="footer-social">
+                        <a href="https://www.instagram.com/" target="_blank" rel="noopener" title="Instagram"><img src="https://img.icons8.com/fluency/32/000000/instagram-new.png" alt="Instagram" style="vertical-align:middle;"></a>
+                        <a href="https://www.facebook.com/" target="_blank" rel="noopener" title="Facebook"><img src="https://img.icons8.com/fluency/32/000000/facebook-new.png" alt="Facebook" style="vertical-align:middle;"></a>
+                        <a href="https://wa.me/5511999999999" target="_blank" rel="noopener" title="WhatsApp"><img src="https://img.icons8.com/fluency/32/000000/whatsapp.png" alt="WhatsApp" style="vertical-align:middle;"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-pro-copy">&copy; 2025 Retech. Todos os direitos reservados.</div>
+    </footer>
+<script>
+// Remover produto do carrinho
+document.querySelectorAll('.cart-remove').forEach(btn => {
+    btn.addEventListener('click', function() {
+        const tr = this.closest('tr');
+        tr.remove();
+        atualizarResumo();
+    });
+});
+
+// Limpar carrinho
+document.getElementById('cart-limpar').addEventListener('click', function() {
+    const tbody = document.querySelector('.cart-table tbody');
+    tbody.innerHTML = '';
+    atualizarResumo();
+});
+
+// Atualizar subtotal e total
+function atualizarResumo() {
+    let subtotal = 0;
+    document.querySelectorAll('.cart-table tbody tr').forEach(tr => {
+        const preco = tr.querySelector('td:nth-child(2)').textContent.replace(/[^\d,\.]/g, '').replace(',', '.');
+        const qtd = parseInt(tr.querySelector('.cart-qtd').value) || 1;
+        const sub = (parseFloat(preco) || 0) * qtd;
+        tr.querySelector('.cart-subtotal').textContent = 'R$ ' + sub.toFixed(2).replace('.', ',');
+        subtotal += sub;
+    });
+    document.getElementById('cart-subtotal').textContent = 'R$ ' + subtotal.toFixed(2).replace('.', ',');
+    const frete = 15.00;
+    document.getElementById('cart-frete').textContent = 'R$ ' + frete.toFixed(2).replace('.', ',');
+    document.getElementById('cart-total').textContent = 'R$ ' + (subtotal + frete).toFixed(2).replace('.', ',');
+}
+
+// Atualizar ao mudar quantidade
+document.querySelectorAll('.cart-qtd').forEach(input => {
+    input.addEventListener('input', atualizarResumo);
+});
+
+window.addEventListener('DOMContentLoaded', atualizarResumo);
+
+// Redirecionar para checkout ao clicar em Finalizar Compra
+document.querySelector('.cart-finalizar').addEventListener('click', function() {
+    window.location.href = 'checkout.html';
+});
+</script>
+<style>
+/* Carrinho moderno */
+.cart-section {
+    max-width: 1100px;
+    margin: 40px auto 0 auto;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 4px 32px #232f3e22;
+    padding: 40px 32px 32px 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+.cart-title {
+    font-size: 2rem;
+    font-weight: 800;
+    color: #232f3e;
+    margin-bottom: 18px;
+    text-align: left;
+}
+.cart-table-container {
+    overflow-x: auto;
+}
+.cart-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 0;
+    background: #f5f6fa;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px #232f3e11;
+}
+.cart-table th, .cart-table td {
+    padding: 16px 12px;
+    text-align: center;
+}
+.cart-table th {
+    background: #232f3e;
+    color: #ffd814;
+    font-size: 1.1rem;
+    font-weight: 700;
+    border-radius: 8px 8px 0 0;
+}
+.cart-produto {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+.cart-produto img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 1px 4px #232f3e22;
+}
+.cart-qtd {
+    width: 48px;
+    padding: 4px 6px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+    text-align: center;
+}
+.cart-remove {
+    background: #ffd814;
+    color: #232f3e;
+    border-radius: 6px;
+    border: none;
+    padding: 8px 16px;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s, transform 0.2s;
+    box-shadow: 0 2px 8px #ffd81433;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.cart-remove:hover {
+    background: #232f3e;
+    color: #ffd814;
+    transform: scale(1.05);
+}
+.cart-summary {
+    background: #f5f6fa;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px #232f3e11;
+    padding: 32px 28px;
+    max-width: 340px;
+    margin-left: auto;
+    font-size: 1.1rem;
+    color: #232f3e;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+.cart-summary h3 {
+    font-size: 1.3rem;
+    margin-bottom: 12px;
+    color: #232f3e;
+}
+.cart-total {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: #232f3e;
+    margin-top: 8px;
+}
+.cart-finalizar {
+    margin-top: 18px;
+    background: linear-gradient(90deg, #ffd814 60%, #f7ca00 100%);
+    color: #232f3e;
+    border: none;
+    border-radius: 6px;
+    padding: 12px 32px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    box-shadow: 0 2px 8px #ffd81433;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+}
+.cart-finalizar:hover {
+    background: #ffd814;
+    transform: translateY(-2px) scale(1.03);
+}
+@media (max-width: 900px) {
+    .cart-section {
+        padding: 24px 8px 18px 8px;
+    }
+    .cart-summary {
+        max-width: 100%;
+        padding: 18px 8px;
+    }
+    .cart-table th, .cart-table td {
+        padding: 10px 4px;
+    }
+}
+@media (max-width: 600px) {
+    .cart-section {
+        padding: 8px 2px 8px 2px;
+    }
+    .cart-title {
+        font-size: 1.2rem;
+    }
+    .cart-summary {
+        font-size: 1rem;
+    }
+    .cart-table th, .cart-table td {
+        font-size: 0.95rem;
+    }
+}
+</style>
+</style>
+<script src="carrinho.js"></script>
+</body>
+</html>

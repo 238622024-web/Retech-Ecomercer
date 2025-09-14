@@ -1,0 +1,230 @@
+/* CSS exclusivo para ofertas-admin.html */
+body { background: #f5f6fa; font-family: 'Poppins', Arial, sans-serif; margin:0; }
+#main-header {
+  background: #232f3e;
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  z-index: 1000;
+}
+.header-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 12px 24px;
+  gap: 16px;
+  background: #232f3e;
+  border-bottom: 1px solid #232f3e;
+  box-sizing: border-box;
+}
+.brand-link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  color: #fff;
+}
+.logo {
+  width: 48px;
+  height: 48px;
+  border-radius: 8px;
+  object-fit: contain;
+}
+.brand {
+  font-size: 1.8rem;
+  font-weight: 700;
+  font-family: 'Montserrat', 'Segoe UI', Arial, sans-serif;
+  color: #ffd814;
+}
+.nav-bar {
+  background: #131921;
+}
+.nav-bar ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 4px 24px;
+  list-style: none;
+}
+.nav-bar ul li {
+  margin: 0 2px;
+}
+.nav-bar ul li a,
+.btn-sair-nav {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.08rem;
+  font-weight: 600;
+  padding: 8px 18px;
+  border-radius: 6px;
+  transition: background 0.18s, color 0.18s;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+.nav-bar ul li a.active,
+.nav-bar ul li a:hover,
+.btn-sair-nav:hover {
+  background: #ffd814;
+  color: #232f3e;
+}
+.btn-sair-nav {
+  background: linear-gradient(90deg, #ffd814 60%, #f7ca00 100%);
+  color: #232f3e;
+  font-weight: 700;
+  box-shadow: 0 2px 8px #ffd81433;
+  margin-left: 8px;
+}
+.btn-sair-nav:hover {
+  background: #232f3e;
+  color: #ffd814;
+  transform: scale(1.05);
+}
+main {
+  min-height: 80vh;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+.admin-header {
+  background: #232f3e;
+  color: #ffd814;
+  padding: 24px 0 16px 0;
+  text-align: center;
+  box-shadow: 0 2px 12px #232f3e11;
+  margin-bottom: 0;
+}
+.admin-header .logo {
+  width: 48px; border-radius: 8px; vertical-align: middle; margin-right: 12px;
+}
+.admin-header-title {
+  font-size: 2rem; font-weight: 800; letter-spacing: 1px; display: inline-block; vertical-align: middle;
+}
+.admin-container { max-width: 700px; margin: 32px auto 0 auto; background: #fff; border-radius: 16px; box-shadow: 0 2px 16px #232f3e22; padding: 40px 32px 32px 32px; }
+.ofertas-titulo {
+  color: #232f3e;
+  font-size: 2.1rem;
+  font-weight: 900;
+  text-align: center;
+  margin-bottom: 28px;
+  letter-spacing: 0.5px;
+  background: linear-gradient(90deg, #ffd814 0%, #ff9900 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 0 2px 8px #232f3e11;
+}
+.admin-back { display: inline-block; margin-bottom: 18px; color: #232f3e; background: #ffd814; border-radius: 6px; padding: 8px 18px; font-weight: 600; text-decoration: none; transition: background 0.2s, color 0.2s; }
+.admin-back:hover { background: #232f3e; color: #ffd814; }
+h1 { color: #232f3e; font-size: 1.6rem; margin-bottom: 18px; text-align:center; }
+.oferta-form, .ofertas-list { margin-top: 32px; }
+.oferta-form { display: flex; flex-wrap: wrap; gap: 16px; background: #f8f9fb; border-radius: 10px; padding: 18px 16px; box-shadow: 0 1px 6px #232f3e11; }
+.oferta-form input[type="text"],
+.oferta-form input[type="file"] {
+  flex:1 1 180px;
+  min-width:120px;
+  padding: 12px 14px;
+  border-radius: 8px;
+  border: 1.5px solid #e3e8f0;
+  font-size: 1.08rem;
+  margin-bottom:0;
+  background: #f6f7fb;
+  color: #232f3e;
+  transition: border 0.18s, box-shadow 0.18s;
+  box-shadow: 0 1px 4px #232f3e08;
+}
+.oferta-form input[type="file"] {
+  padding: 12px 14px;
+  background: #fffbe6;
+  border: 2px solid #ffd814;
+  border-radius: 8px;
+  font-size: 1.08rem;
+  color: #232f3e;
+  font-weight: 600;
+  box-shadow: 0 2px 8px #ffd81422;
+  transition: border 0.18s, box-shadow 0.18s, background 0.18s;
+  cursor: pointer;
+}
+.oferta-form input[type="file"]:focus {
+  border: 2px solid #ff9900;
+  background: #fffde4;
+  outline: none;
+  box-shadow: 0 2px 12px #ffd81455;
+}
+}
+.oferta-form input[type="text"]:focus,
+.oferta-form input[type="file"]:focus {
+  border: 1.5px solid #ffd814;
+  outline: none;
+  box-shadow: 0 2px 8px #ffd81433;
+}
+.oferta-form label {
+  font-weight: 600;
+  color: #232f3e;
+  font-size: 1.08rem;
+  margin-bottom: 2px;
+}
+.oferta-form button {
+  background: linear-gradient(90deg, #ffd814 60%, #f7ca00 100%);
+  color: #232f3e;
+  font-weight: 700;
+  box-shadow: 0 2px 8px #ffd81433;
+  border: none;
+  border-radius: 8px;
+  padding: 14px 28px;
+  font-size: 1.1rem;
+  margin-top: 8px;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+}
+.oferta-form button:hover {
+  background: #232f3e;
+  color: #ffd814;
+  box-shadow: 0 2px 12px #232f3e22;
+}
+#preview-imagem-oferta {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+}
+#preview-imagem-oferta img {
+  max-width: 90px;
+  max-height: 90px;
+  border-radius: 8px;
+  border: 2px solid #ffd814;
+  box-shadow: 0 2px 8px #ffd81422;
+  margin: 0 auto;
+}
+.ofertas-list {
+  margin-top: 32px;
+}
+.ofertas-list p {
+  color: #888;
+  text-align: center;
+  font-size: 1.08rem;
+  margin-top: 18px;
+}
+.oferta-form input { flex:1 1 180px; min-width:120px; padding: 10px; border-radius: 6px; border: 1px solid #ccc; font-size: 1rem; margin-bottom:0; }
+.oferta-form button { background: #232f3e; color: #ffd814; border: none; border-radius: 6px; padding: 12px 22px; font-size: 1.1rem; font-weight:700; cursor: pointer; transition: background 0.2s, color 0.2s; }
+.oferta-form button:hover { background: #ffd814; color: #232f3e; }
+.ofertas-list { margin-top: 32px; }
+.oferta-admin-card { display: flex; align-items: center; gap: 18px; background: #f8f9fb; border-radius: 10px; padding: 16px 18px; margin-bottom: 16px; box-shadow: 0 1px 6px #232f3e11; }
+.oferta-admin-card img { width: 70px; height: 70px; object-fit: cover; border-radius: 8px; border:2px solid #ffd814; background:#fff; }
+.oferta-admin-card .info { flex: 1; }
+.oferta-admin-card .info strong { font-size:1.1rem; color:#232f3e; }
+.oferta-admin-card .actions button { background: none; border: none; color: #d32f2f; font-size: 1.3rem; cursor: pointer; padding:8px; border-radius:6px; transition: background 0.2s; }
+.oferta-admin-card .actions button:hover { background: #ffd814; color: #232f3e; }
+.oferta-admin-card .preco-antigo { color:#888;text-decoration:line-through; }
+.oferta-admin-card .preco-novo { color:#1a8f3a;font-weight:700;margin-left:10px; }
+@media (max-width: 600px) { .admin-container { padding: 12px 2vw; } .oferta-form { flex-direction:column; gap:10px; } }

@@ -1,0 +1,303 @@
+/* Centralização e visual moderno para tabela de usuários admin */
+.admin-container {
+    max-width: 900px;
+    margin: 40px auto 0 auto;
+    background: #fff;
+    border-radius: 14px;
+    box-shadow: 0 2px 16px 0 #0001;
+    padding: 32px 24px 40px 24px;
+}
+
+.ofertas-titulo {
+    text-align: center;
+    font-size: 2.1rem;
+    margin-bottom: 32px;
+    color: #222;
+    letter-spacing: 1px;
+}
+
+.usuarios-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    background: #fafbfc;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 1px 8px #0001;
+    margin: 0 auto;
+}
+.usuarios-table th, .usuarios-table td {
+    padding: 16px 12px;
+    text-align: center;
+    font-size: 1.08rem;
+}
+.usuarios-table th {
+    background: #f0f2f5;
+    color: #333;
+    font-weight: 600;
+    border-bottom: 2px solid #e0e0e0;
+}
+.usuarios-table tr {
+    transition: background 0.2s;
+}
+.usuarios-table tbody tr:hover {
+    background: #f5f7fa;
+}
+.usuarios-table td {
+    color: #444;
+    border-bottom: 1px solid #ececec;
+}
+.usuarios-table tr:last-child td {
+    border-bottom: none;
+}
+.acoes-btns {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+.btn-editar, .btn-excluir {
+    border: none;
+    border-radius: 6px;
+    padding: 7px 16px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+.btn-editar {
+    background: #e3f3ff;
+    color: #1976d2;
+}
+.btn-editar:hover {
+    background: #b3e0ff;
+    color: #0d47a1;
+}
+.btn-excluir {
+    background: #ffeaea;
+    color: #d32f2f;
+}
+.btn-excluir:hover {
+    background: #ffbdbd;
+    color: #b71c1c;
+}
+@media (max-width: 700px) {
+    .admin-container {
+        padding: 12px 2vw 24px 2vw;
+    }
+    .usuarios-table th, .usuarios-table td {
+        padding: 10px 4px;
+        font-size: 0.98rem;
+    }
+    .ofertas-titulo {
+        font-size: 1.3rem;
+    }
+}
+/* ====== HEADER E NAVEGAÇÃO PADRÃO ADMIN ====== */
+#main-header {
+    background: #232f3e;
+    color: #fff;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    z-index: 1000;
+}
+.header-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 12px 24px;
+    gap: 16px;
+    background: #232f3e;
+    border-bottom: 1px solid #232f3e;
+    box-sizing: border-box;
+}
+.brand-link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    color: #fff;
+}
+.logo {
+    width: 48px;
+    height: 48px;
+    border-radius: 8px;
+    object-fit: contain;
+}
+.brand {
+    font-size: 1.8rem;
+    font-weight: 700;
+    font-family: 'Montserrat', 'Segoe UI', Arial, sans-serif;
+    color: #ffd814;
+}
+.nav-bar {
+    background: #131921;
+}
+.nav-bar ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 4px 24px;
+    list-style: none;
+}
+.nav-bar ul li {
+    margin: 0 2px;
+}
+.nav-bar ul li a,
+.btn-sair-nav {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.08rem;
+    font-weight: 600;
+    padding: 8px 18px;
+    border-radius: 6px;
+    transition: background 0.18s, color 0.18s;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+.nav-bar ul li a.active,
+.nav-bar ul li a:hover,
+.btn-sair-nav:hover {
+    background: #ffd814;
+    color: #232f3e;
+}
+.btn-sair-nav {
+    background: linear-gradient(90deg, #ffd814 60%, #f7ca00 100%);
+    color: #232f3e;
+    font-weight: 700;
+    box-shadow: 0 2px 8px #ffd81433;
+    margin-left: 8px;
+}
+.btn-sair-nav:hover {
+    background: #232f3e;
+    color: #ffd814;
+    transform: scale(1.05);
+}
+/* CSS exclusivo para usuarios-admin.html */
+body.usuarios-admin {
+    font-family: 'Poppins', Arial, sans-serif;
+    background: #f5f6fa;
+}
+.usuarios-main {
+    max-width: 900px;
+    margin: 48px auto 32px auto;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 2px 16px #232f3e22;
+    padding: 40px 32px 32px 32px;
+}
+.usuarios-main h2 {
+    color: #232f3e;
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 24px;
+    text-align: center;
+}
+.usuarios-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 18px;
+}
+.usuarios-table th, .usuarios-table td {
+    padding: 12px 10px;
+    border-bottom: 1px solid #e0e5ec;
+    text-align: left;
+}
+.usuarios-table th {
+    background: #f5f6fa;
+    color: #232f3e;
+    font-weight: 700;
+}
+.usuarios-table tr:hover {
+    background: #f0f4fa;
+}
+.acoes-btns {
+    display: flex;
+    gap: 10px;
+}
+.btn-editar, .btn-excluir {
+    border: none;
+    border-radius: 6px;
+    padding: 7px 18px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+}
+.btn-editar {
+    background: #ffd814;
+    color: #232f3e;
+}
+.btn-editar:hover {
+    background: #f7ca00;
+    transform: scale(1.04);
+}
+.btn-excluir {
+    background: #ff4d4f;
+    color: #fff;
+}
+.btn-excluir:hover {
+    background: #d32f2f;
+    transform: scale(1.04);
+}
+@media (max-width: 700px) {
+    .usuarios-main { padding: 18px 4vw; }
+    .usuarios-table th, .usuarios-table td { padding: 8px 4px; font-size: 0.95rem; }
+}
+.usuarios-main {
+    max-width: 900px;
+    margin: 40px auto;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 2px 16px #232f3e22;
+    padding: 40px 32px 32px 32px;
+}
+.usuarios-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 24px;
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px #232f3e11;
+}
+.usuarios-table th, .usuarios-table td {
+    padding: 14px 10px;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+}
+.usuarios-table th {
+    background: #f6f7fb;
+    color: #232f3e;
+    font-weight: 700;
+}
+.acoes-btns button {
+    background: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 6px 14px;
+    margin-right: 6px;
+    cursor: pointer;
+    font-size: 0.95rem;
+    transition: background 0.2s, transform 0.2s;
+}
+.acoes-btns button.btn-excluir {
+    background: #d32f2f;
+}
+.acoes-btns button:hover {
+    background: #0056b3;
+    transform: scale(1.07);
+}

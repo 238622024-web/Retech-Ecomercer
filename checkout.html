@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finalizar Compra - Loja Retech</title>
+    <!-- Link para o Font Awesome (ícones) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Link para as fontes do Google -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Segoe+UI:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Link para seu arquivo CSS externo -->
+    <link rel="stylesheet" href="checkout.css">
+</head>
+<body>
+
+    <header id="main-header">
+        <div class="header-top">
+            <div class="brand-container">
+                <img src="https://placehold.co/100x40/e2e8f0/4a5568?text=Retech" alt="Logo Loja Retech" class="logo">
+                <span class="brand ml-2">Loja <strong>Retech</strong></span>
+            </div>
+            <form class="search-bar" action="#" method="get" role="search">
+                <input type="text" placeholder="Buscar produtos..." name="q">
+                <button type="submit" aria-label="Buscar"><i class="fa-solid fa-magnifying-glass"></i></button>
+            </form>
+            <div>
+                 <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menu" aria-expanded="false">
+                    <i class="fa-solid fa-bars fa-lg"></i>
+                </button>
+            </div>
+        </div>
+        <nav class="nav-bar" id="main-nav">
+            <ul>
+                <li><a href="index.html"><i class="fa-solid fa-house"></i> Início</a></li>
+                <li><a href="produtos.html"><i class="fa-solid fa-bag-shopping"></i> Produtos</a></li>
+                <li><a href="contato.html"><i class="fa-solid fa-phone"></i> Contato</a></li>
+                <li><a href="sobre.html"><i class="fa-solid fa-circle-info"></i> Sobre</a></li>
+                <li><a href="carrinho.html"><i class="fa-solid fa-cart-shopping"></i> Carrinho</a></li>
+                <li><a href="login.html"><i class="fa-solid fa-right-to-bracket"></i> Login</a></li>
+                <li><form action="logout.html" method="post"><button type="submit" class="btn-sair-nav"><i class="fa-solid fa-arrow-right-from-bracket"></i> Sair</button></form></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div id="checkout-container">
+            <div class="checkout-wrapper">
+                <div class="checkout-main">
+                    <form id="checkout-form" novalidate>
+                        <section class="checkout-section">
+                            <h2><i class="fa-solid fa-truck"></i> Dados de Entrega</h2>
+                            <div class="checkout-form">
+                                <div class="form-input-group"><label for="nome">Nome Completo</label><input type="text" id="nome" required><p id="nome-error" class="error-message"></p></div>
+                                <div class="form-input-group"><label for="email">E-mail</label><input type="email" id="email" required><p id="email-error" class="error-message"></p></div>
+                                <div class="form-input-group"><label for="endereco">Endereço</label><input type="text" id="endereco" required><p id="endereco-error" class="error-message"></p></div>
+                                <div class="form-input-group"><label for="cidade">Cidade</label><input type="text" id="cidade" required><p id="cidade-error" class="error-message"></p></div>
+                                <div class="form-input-group"><label for="cep">CEP</label><input type="text" id="cep" placeholder="00000-000" required><p id="cep-error" class="error-message"></p></div>
+                                <div class="form-input-group"><label for="telefone">Telefone</label><input type="tel" id="telefone" placeholder="(11) 99999-9999" required><p id="telefone-error" class="error-message"></p></div>
+                            </div>
+                        </section>
+
+                        <section class="checkout-section">
+                            <h2><i class="fa-solid fa-credit-card"></i> Pagamento</h2>
+                            <div class="payment-tabs">
+                                <button type="button" class="payment-tab active" data-method="cartao"><i class="fa-solid fa-credit-card"></i> Cartão</button>
+                                <button type="button" class="payment-tab" data-method="boleto"><i class="fa-solid fa-barcode"></i> Boleto</button>
+                            </div>
+                            
+                            <div id="form-cartao" class="payment-form active">
+                                <div class="form-input-group"><label for="card-number">Número do Cartão</label><input type="text" id="card-number" placeholder="0000 0000 0000 0000"><p id="card-number-error" class="error-message"></p></div>
+                                <div class="form-input-group"><label for="card-name">Nome no Cartão</label><input type="text" id="card-name"><p id="card-name-error" class="error-message"></p></div>
+                                <div class="form-grid">
+                                    <div class="form-input-group"><label for="card-expiry">Validade (MM/AA)</label><input type="text" id="card-expiry" placeholder="MM/AA"><p id="card-expiry-error" class="error-message"></p></div>
+                                    <div class="form-input-group"><label for="card-cvv">CVV</label><input type="text" id="card-cvv" placeholder="123"><p id="card-cvv-error" class="error-message"></p></div>
+                                </div>
+                            </div>
+                            
+                            <div id="form-boleto" class="payment-form">
+                                <p style="text-align: center; padding: 20px 0;">O boleto será gerado ao finalizar o pedido.</p>
+                            </div>
+                        </section>
+                        
+                        <button type="submit" id="submit-button" class="btn-finalizar">
+                            <span id="button-text">Finalizar Pagamento</span>
+                            <span id="button-loader" class="hidden">Processando...</span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div id="success-message" class="order-modal">
+             <div class="order-modal-inner">
+                <i class="fa-solid fa-circle-check"></i>
+                <h2>Pedido Realizado!</h2>
+                <p>Obrigado pela sua compra! Os detalhes foram enviados para o seu e-mail.</p>
+                <p id="success-payment-method"></p>
+                <p class="order-number-text">Pedido: <strong id="order-number"></strong></p>
+                <button onclick="window.location.reload()" class="btn-finalizar">Nova Compra</button>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer-content">
+        <footer class="footer-retech-pro">
+            <div class="footer-pro-container">
+                <div class="footer-pro-row">
+                    <div class="footer-pro-col">
+                        <img src="Retech.jpeg" alt="Logo Retech" style="height:44px;border-radius:8px;margin-bottom:10px;">
+                        <p style="color:#ccc;font-size:1rem;max-width:220px;line-height:1.5;">Tecnologia, confiança e atendimento de excelência para você comprar com tranquilidade.</p>
+                    </div>
+                    <div class="footer-pro-col">
+                        <h4>Institucional</h4>
+                        <ul>
+                            <li><a href="sobre.html">Sobre nós</a></li>
+                            <li><a href="#">Política de Privacidade</a></li>
+                            <li><a href="#">Termos de Uso</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-pro-col">
+                        <h4>Atendimento</h4>
+                        <ul>
+                            <li><a href="contato.html">Fale Conosco</a></li>
+                            <li><a href="#">Trocas e Devoluções</a></li>
+                            <li><a href="#">Perguntas Frequentes</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-pro-col">
+                        <h4>Pagamento Seguro</h4>
+                        <div class="footer-pagamentos">
+                            <img src="https://img.icons8.com/color/32/000000/visa.png" alt="Visa" title="Visa">
+                            <img src="https://img.icons8.com/color/32/000000/mastercard-logo.png" alt="Mastercard" title="Mastercard">
+                            <img src="https://img.icons8.com/color/32/000000/amex.png" alt="Amex" title="American Express">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Elo_card_logo.png/120px-Elo_card_logo.png" alt="Elo" title="Elo" style="height:32px;width:auto;background:#fff;border-radius:4px;padding:2px;">
+                            <img src="https://img.icons8.com/color/32/000000/pix.png" alt="Pix" title="Pix">
+                            <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Boleto" title="Boleto" style="height:32px;width:auto;background:#fff;border-radius:4px;padding:2px;">
+                        </div>
+                        <div class="footer-selo">
+                            <img src="https://img.icons8.com/fluency/32/000000/lock-2.png" alt="Site Seguro" title="Site Seguro">
+                            <span>Ambiente 100% Seguro</span>
+                        </div>
+                    </div>
+                    <div class="footer-pro-col footer-pro-social">
+                        <h4>Redes Sociais</h4>
+                        <div class="footer-social">
+                            <a href="https://www.instagram.com/" target="_blank" rel="noopener" title="Instagram"><img src="https://img.icons8.com/fluency/32/000000/instagram-new.png" alt="Instagram" style="vertical-align:middle;"></a>
+                            <a href="https://www.facebook.com/" target="_blank" rel="noopener" title="Facebook"><img src="https://img.icons8.com/fluency/32/000000/facebook-new.png" alt="Facebook" style="vertical-align:middle;"></a>
+                            <a href="https://wa.me/5511999999999" target="_blank" rel="noopener" title="WhatsApp"><img src="https://img.icons8.com/fluency/32/000000/whatsapp.png" alt="WhatsApp" style="vertical-align:middle;"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-pro-copy">&copy; 2025 Retech. Todos os direitos reservados.</div>
+        </footer>
+    </footer>
+
+    <!-- Link para seu arquivo JavaScript externo -->
+    <script src="checkout.js"></script>
+</body>
+</html>
+

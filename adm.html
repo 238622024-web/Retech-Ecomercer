@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel Administrativo - Loja Retech</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="admin.css">
+
+</head>
+<body>
+    <header id="main-header">
+        <div class="header-top">
+            <img src="Retech.jpeg" alt="Logo Loja Retech" class="logo" tabindex="0">
+            <span class="brand">Loja <strong>Retech</strong></span>
+            <form class="search-bar" action="#" method="get" role="search">
+                <input type="text" placeholder="Buscar produtos..." name="q" aria-label="Buscar produtos">
+                <button type="submit" aria-label="Buscar"><span>🔍</span></button>
+            </form>
+            <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="main-nav">
+                <span class="hamburger"></span>
+            </button>
+        </div>
+        <nav id="main-nav" class="nav-bar" aria-label="Menu principal">
+            <ul>
+                <li><a href="index.html"><i class="fa-solid fa-house"></i> Início</a></li>
+                <li><a href="produtos.html"><i class="fa-solid fa-bag-shopping"></i> Produtos</a></li>
+                <li><a href="contato.html"><i class="fa-solid fa-phone"></i> Contato</a></li>
+                <li><a href="sobre.html"><i class="fa-solid fa-circle-info"></i> Sobre</a></li>
+                <li><a href="carrinho.html"><i class="fa-solid fa-cart-shopping"></i> Carrinho</a></li>
+                <li><a href="Login.html"><i class="fa-solid fa-right-to-bracket"></i> Login</a></li>
+                <li>
+                    <form action="/logout" method="post" style="display:inline;">
+                        <button type="submit" class="btn-sair-nav" aria-label="Sair">
+                            <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                            <span>Sair</span>
+                        </button>
+                    </form>
+                </li>
+            </ul>
+        </nav>
+        <a href="https://wa.me/5511999999999" target="_blank" class="whatsapp-btn" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+    </header>
+    <main>
+        <div class="admin-container">
+            <h1 class="admin-title"><i class="fa-solid fa-user-shield"></i> Painel Administrativo</h1>
+            <div class="admin-welcome">
+                Bem-vindo(a), Administrador!<br>
+                Aqui você pode gerenciar produtos, pedidos, usuários e visualizar relatórios.
+            </div>
+            <div class="admin-section">
+                <a href="produtos-admin.html" class="admin-card" style="text-decoration:none;">
+                    <i class="fa-solid fa-box"></i>
+                    <h3>Gerenciar Produtos</h3>
+                    <p>Adicione, edite ou remova produtos do catálogo da loja.</p>
+                </a>
+                <a href="pedidos-admin.html" class="admin-card" style="text-decoration:none;">
+                    <i class="fa-solid fa-clipboard-list"></i>
+                    <h3>Gerenciar Pedidos</h3>
+                    <p>Acompanhe e atualize o status dos pedidos realizados.</p>
+                </a>
+                <a href="usuarios-admin.html" class="admin-card" style="text-decoration:none;">
+                    <i class="fa-solid fa-users"></i>
+                    <h3>Gerenciar Usuários</h3>
+                    <p>Visualize e gerencie os clientes cadastrados na plataforma.</p>
+                </a>
+                <a href="ofertas-admin.html" class="admin-card" style="text-decoration:none;">
+                    <i class="fa-solid fa-bolt"></i>
+                    <h3>Gerenciar Ofertas do Dia</h3>
+                    <p>Adicione ou remova produtos em destaque na seção de ofertas do dia da página inicial.</p>
+                </a>
+                <a href="relatorios-admin.html" class="admin-card" style="text-decoration:none;">
+                    <i class="fa-solid fa-chart-line"></i>
+                    <h3>Relatórios</h3>
+                    <p>Veja estatísticas e relatórios de vendas e desempenho.</p>
+                </a>
+            </div>
+        </div>
+    </main>
+    <script src="admin.js"></script>
+</body>
+</html>

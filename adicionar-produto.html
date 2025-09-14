@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8">
+    <title>Adicionar Produto - Loja Retech</title>
+    <link rel="stylesheet" href="adicionar-produto.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header id="main-header">
+        <div class="header-top">
+            <a href="index.html" class="brand-link">
+                <img src="Retech.jpeg" alt="Logo Loja Retech" class="logo">
+                <span class="brand">Loja <strong>Retech</strong></span>
+            </a>
+        </div>
+        <nav id="main-nav" class="nav-bar" aria-label="Menu principal">
+            <ul>
+                <li><a href="index.html"><i class="fa-solid fa-house"></i> Início</a></li>
+                <li><a href="adm.html"><i class="fa-solid fa-user-shield"></i> Painel Admin</a></li>
+                <li><a href="produtos-admin.html"><i class="fa-solid fa-box"></i> Produtos</a></li>
+                <li><a href="Login.html"><i class="fa-solid fa-right-to-bracket"></i> Login</a></li>
+                <li>
+                    <form action="/logout" method="post" style="display:inline;">
+                        <button type="submit" class="btn-sair-nav"><i class="fa-solid fa-arrow-right-from-bracket"></i> Sair</button>
+                    </form>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <form class="adicionar-produto-main" id="formAdicionarProduto" autocomplete="off" enctype="multipart/form-data">
+            <h2>Adicionar Produto</h2>
+            <div class="form-group">
+                <label for="nome">Nome do Produto</label>
+                <input type="text" id="nome" name="nome" required maxlength="80" placeholder="Ex: Camiseta Premium">
+            </div>
+            <div class="form-group">
+                <label for="descricao">Descrição</label>
+                <textarea id="descricao" name="descricao" required maxlength="400" placeholder="Descreva o produto..."></textarea>
+            </div>
+            <div class="form-group">
+                <label for="preco">Preço (R$)</label>
+                <input type="number" id="preco" name="preco" required min="0" step="0.01" placeholder="Ex: 49.90">
+            </div>
+            <div class="form-group">
+                <label for="estoque">Estoque</label>
+                <input type="number" id="estoque" name="estoque" required min="0" step="1" placeholder="Quantidade em estoque">
+            </div>
+            <div class="form-group">
+                <label for="categoria">Categoria</label>
+                <select id="categoria" name="categoria" required>
+                    <option value="">Selecione</option>
+                    <option value="produtos-retech">Produtos Retech</option>
+                    <option value="camisetas">Camisetas</option>
+                    <option value="acessorios">Acessórios</option>
+                    <option value="calcas">Calças</option>
+                    <option value="tecnologia">Tecnologia</option>
+                    <option value="outros">Outros</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="imagem">Imagem do Produto</label>
+                <input type="file" id="imagem" name="imagem" accept="image/*" required>
+                <div id="preview-imagem" style="margin-top:10px;"></div>
+            </div>
+            <div class="form-actions">
+                <button type="submit" class="btn-salvar"><i class="fa-solid fa-plus"></i> Salvar</button>
+                <a href="produtos-admin.html" class="btn-cancelar">Cancelar</a>
+            </div>
+        </form>
+    </main>
+    <!-- Footer removido conforme solicitado -->
+    <script src="adicionar-produto.js"></script>
+</body>
+</html>

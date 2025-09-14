@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciar Produtos - Admin Retech</title>
+    <link rel="stylesheet" href="fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="produtos-admin.css">
+</head>
+<body>
+    <header id="main-header">
+        <div class="header-top">
+            <a href="index.html" class="brand-link">
+                <img src="Retech.jpeg" alt="Logo Loja Retech" class="logo">
+                <span class="brand">Loja <strong>Retech</strong></span>
+            </a>
+            <form class="search-bar" action="#" method="get" role="search">
+                <input type="text" placeholder="Buscar produtos..." name="q" aria-label="Buscar produtos">
+                <button type="submit" aria-label="Buscar"><span>🔍</span></button>
+            </form>
+            <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="main-nav">
+                <span class="hamburger"></span>
+            </button>
+        </div>
+        <nav id="main-nav" class="nav-bar" aria-label="Menu principal">
+            <ul>
+                <li><a href="index.html"><i class="fa-solid fa-house"></i> Início</a></li>
+                <li><a href="adm.html"><i class="fa-solid fa-user-shield"></i> Painel Admin</a></li>
+                <li><a href="produtos-admin.html" class="active"><i class="fa-solid fa-box"></i> Produtos</a></li>
+                <li><a href="Login.html" class="login-link"><i class="fa-solid fa-right-to-bracket"></i> Login</a></li>
+                <li>
+                    <form action="/logout" method="post" style="display:inline;">
+                        <button type="submit" class="btn-sair-nav"><i class="fa-solid fa-arrow-right-from-bracket"></i> Sair</button>
+                    </form>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="admin-section">
+            <h1><i class="fa-solid fa-box"></i> Gerenciar Produtos</h1>
+            <a href="adicionar-produto.html" class="add-btn" style="display:inline-block;text-decoration:none;"><i class="fa-solid fa-plus"></i> Adicionar Produto</a>
+            <table class="produtos-table">
+                <thead>
+                    <tr>
+                        <th>Imagem</th>
+                        <th>Nome</th>
+                        <th>Categoria</th>
+                        <th>Preço</th>
+                        <th>Estoque</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td colspan="6" class="tabela-vazia">Nenhum produto cadastrado ainda.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <div id="alerta-sucesso" class="alerta sucesso">Produto removido com sucesso!</div>
+        <div id="modal-confirmar" class="modal">
+            <div class="modal-box">
+                <p>Tem certeza que deseja remover este produto?</p>
+                <button id="btn-confirmar" class="btn confirmar">Sim, remover</button>
+                <button id="btn-cancelar" class="btn cancelar">Cancelar</button>
+            </div>
+        </div>
+        <script src="produtos-admin.js"></script>
+    </main>
+</body>
+</html>

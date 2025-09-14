@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciar Pedidos - Admin Retech</title>
+    <link rel="stylesheet" href="pedidos-admin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header id="main-header">
+        <div class="header-top">
+            <a href="index.html" class="brand-link">
+                <img src="Retech.jpeg" alt="Logo Loja Retech" class="logo">
+                <span class="brand">Loja <strong>Retech</strong></span>
+            </a>
+        </div>
+        <nav id="main-nav" class="nav-bar" aria-label="Menu principal">
+            <ul>
+                <li><a href="index.html"><i class="fa-solid fa-house"></i> Início</a></li>
+                <li><a href="adm.html"><i class="fa-solid fa-user-shield"></i> Painel Admin</a></li>
+                <li><a href="produtos-admin.html"><i class="fa-solid fa-box"></i> Produtos</a></li>
+                <li><a href="ofertas-admin.html"><i class="fa-solid fa-tags"></i> Ofertas do Dia</a></li>
+                <li><a href="pedidos-admin.html" class="active"><i class="fa-solid fa-clipboard-list"></i> Pedidos</a></li>
+                <li><a href="Login.html"><i class="fa-solid fa-right-to-bracket"></i> Login</a></li>
+                <li>
+                    <form action="/logout" method="post" style="display:inline;">
+                        <button type="submit" class="btn-sair-nav"><i class="fa-solid fa-arrow-right-from-bracket"></i> Sair</button>
+                    </form>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="admin-section">
+            <h1><i class="fa-solid fa-clipboard-list"></i> Gerenciar Pedidos</h1>
+            <table class="pedidos-table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Cliente</th>
+                        <th>Data</th>
+                        <th>Itens</th>
+                        <th>Total</th>
+                        <th>Status</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td colspan="7" style="text-align:center; color:#888; font-size:1.08rem; padding: 32px 0;">Nenhum pedido cadastrado.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <div id="modal-detalhes-pedido" class="modal-pedido" style="display:none;">
+            <div class="modal-pedido-content">
+                <span class="modal-pedido-close" onclick="fecharDetalhesPedido()">&times;</span>
+                <h2>Detalhes do Pedido</h2>
+                <div id="detalhes-pedido-content"></div>
+            </div>
+        </div>
+    </main>
+    <script>
+    function abrirDetalhesPedido(event, id, cliente, data, itens, total, status) {
+        event.preventDefault();
+        const modal = document.getElementById('modal-detalhes-pedido');
+        const content = document.getElementById('detalhes-pedido-content');
+        content.innerHTML = `
+            <strong>ID:</strong> #${id}<br>
+            <strong>Cliente:</strong> ${cliente}<br>
+            <strong>Data:</strong> ${data}<br>
+            <strong>Itens:</strong> ${itens}<br>
+            <strong>Total:</strong> ${total}<br>
+            <strong>Status:</strong> ${status}
+        `;
+        modal.style.display = 'flex';
+    }
+    function fecharDetalhesPedido() {
+        document.getElementById('modal-detalhes-pedido').style.display = 'none';
+    }
+    // async function carregarPedidos() {
+    // const resp = await fetch("http://localhost:3000/api/pedidos");
+    // const pedidos = await resp.json();
+    const tbody = document.querySelector("#tabelaPedidos tbody");
+    tbody.innerHTML = "";
+    pedidos.forEach(p => {
+        let itens = p.itens.map(i => `${i.nome} (x${i.qtd})`).join(", ");
+        tbody.innerHTML += `
+        <tr>
+            <td>${p.id}</td>
+            <td>${p.usuario}</td>
+            <td>${itens}</td>
+            <td>R$ ${p.total.toFixed(2)}</td>
+            <td>${p.pagamento}</td>
+            <td>${new Date(p.data).toLocaleDateString("pt-BR")}</td>
+            <td><button onclick="excluirPedido(${p.id})">🗑️ Cancelar</button></td>
+        </tr>`;
+    });
+    }
+
+    async function excluirPedido(id) {
+    if (!confirm("Cancelar pedido?")) return;
+    await fetch(`http://localhost:3000/api/pedidos/${id}`, { method: "DELETE" });
+    carregarPedidos();
+    }
+
+    window.onload = carregarPedidos;
+    </script>
+
+</body>
+</html>

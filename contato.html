@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8">
+    <title>Contato - Loja Retech</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="contato.css">
+    <link rel="icon" type="image/png" href="Retech.jpeg">
+</head>
+    <body class="contato">
+    <header id="main-header">
+        <div class="header-top">
+            <img src="Retech.jpeg" alt="Logo Loja Retech" class="logo">
+            <span class="brand">Loja <strong>Retech</strong></span>
+            <form class="search-bar" action="#" method="get">
+                <input type="text" placeholder="Buscar produtos..." name="q">
+                <button type="submit"><span>🔍</span></button>
+            </form>
+        </div>
+        <nav id="main-nav" class="nav-bar" aria-label="Menu principal">
+            <div class="header-container">
+                <ul>
+                    <li><a href="index.html"><i class="fa-solid fa-house"></i> Início</a></li>
+                    <li><a href="produtos.html"><i class="fa-solid fa-bag-shopping"></i> Produtos</a></li>
+                    <li><a href="contato.html" class="active"><i class="fa-solid fa-phone"></i> Contato</a></li>
+                    <li><a href="sobre.html"><i class="fa-solid fa-circle-info"></i> Sobre</a></li>
+                    <li><a href="carrinho.html"><i class="fa-solid fa-cart-shopping"></i> Carrinho</a></li>
+                    <li><a href="Login.html"><i class="fa-solid fa-right-to-bracket"></i> Login</a></li>
+                    <li>
+                        <form action="/logout" method="post" style="display:inline;">
+                            <button type="submit" class="btn-sair-nav" aria-label="Sair">
+                                <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                                <span>Sair</span>
+                            </button>
+                        </form>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section class="contato-section">
+            <h2 class="contato-titulo"><i class='fa-solid fa-envelope'></i> Fale Conosco</h2>
+            <div class="contato-form-wrapper">
+                <div class="contato-form">
+                    <form id="formContato">
+                        <div class="contato-campo">
+                            <label for="nome">Nome</label>
+                            <input type="text" id="nome" name="nome" required placeholder="Digite seu nome">
+                        </div>
+                        <div class="contato-campo">
+                            <label for="email">E-mail</label>
+                            <input type="email" id="email" name="email" required placeholder="seu@email.com">
+                        </div>
+                        <div class="contato-campo">
+                            <label for="mensagem">Mensagem</label>
+                            <textarea id="mensagem" name="mensagem" rows="5" required placeholder="Digite sua mensagem"></textarea>
+                        </div>
+                        <button type="submit" class="contato-btn">Enviar</button>
+                    </form>
+                    <div id="contato-alerta">Mensagem enviada com sucesso!</div>
+                </div>
+                <div class="contato-info">
+                    <div class="contato-info-box">
+                        <div class="contato-info-titulo"><i class="fa-solid fa-phone"></i> Telefone</div>
+                        <div class="contato-info-dado destaque">(11) 99999-9999</div>
+                    </div>
+                    <div class="contato-info-box">
+                        <div class="contato-info-titulo"><i class="fa-solid fa-envelope"></i> E-mail</div>
+                        <div class="contato-info-dado destaque">contato@retech.com.br</div>
+                    </div>
+                    <div class="contato-info-box">
+                        <div class="contato-info-titulo"><i class="fa-brands fa-whatsapp"></i> WhatsApp</div>
+                        <div class="contato-info-dado destaque"><a href="https://wa.me/5511999999999" target="_blank" class="contato-whatsapp">(11) 99999-9999</a></div>
+                    </div>
+                    <div class="contato-info-box">
+                        <div class="contato-info-titulo"><i class="fa-solid fa-location-dot"></i> Endereço</div>
+                        <div class="contato-info-dado">Rua Exemplo, 123<br>São Paulo/SP</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <a href="https://wa.me/5511999999999" class="whatsapp-float" target="_blank" title="Fale conosco pelo WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        <script src="contato.js"></script>
+    </main>
+    <footer>
+        <footer class="footer-retech-pro">
+            <div class="footer-pro-container">
+                <div class="footer-pro-row">
+                    <div class="footer-pro-col">
+                        <img src="Retech.jpeg" alt="Logo Retech" style="height:44px;border-radius:8px;margin-bottom:10px;">
+                        <p style="color:#ccc;font-size:1rem;max-width:220px;line-height:1.5;">Tecnologia, confiança e atendimento de excelência para você comprar com tranquilidade.</p>
+                    </div>
+                    <div class="footer-pro-col">
+                        <h4>Institucional</h4>
+                        <ul>
+                            <li><a href="sobre.html">Sobre nós</a></li>
+                            <li><a href="#">Política de Privacidade</a></li>
+                            <li><a href="#">Termos de Uso</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-pro-col">
+                        <h4>Atendimento</h4>
+                        <ul>
+                            <li><a href="contato.html">Fale Conosco</a></li>
+                            <li><a href="#">Trocas e Devoluções</a></li>
+                            <li><a href="#">Perguntas Frequentes</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-pro-col">
+                        <h4>Pagamento Seguro</h4>
+                        <div class="footer-pagamentos">
+                            <img src="https://img.icons8.com/color/32/000000/visa.png" alt="Visa" title="Visa">
+                            <img src="https://img.icons8.com/color/32/000000/mastercard-logo.png" alt="Mastercard" title="Mastercard">
+                            <img src="https://img.icons8.com/color/32/000000/amex.png" alt="Amex" title="American Express">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Elo_card_logo.png/120px-Elo_card_logo.png" alt="Elo" title="Elo" style="height:32px;width:auto;background:#fff;border-radius:4px;padding:2px;">
+                            <img src="https://img.icons8.com/color/32/000000/pix.png" alt="Pix" title="Pix">
+                            <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Boleto" title="Boleto" style="height:32px;width:auto;background:#fff;border-radius:4px;padding:2px;">
+                        </div>
+                        <div class="footer-selo">
+                            <img src="https://img.icons8.com/fluency/32/000000/lock-2.png" alt="Site Seguro" title="Site Seguro">
+                            <span>Ambiente 100% Seguro</span>
+                        </div>
+                    </div>
+                    <div class="footer-pro-col footer-pro-social">
+                        <h4>Redes Sociais</h4>
+                        <div class="footer-social">
+                            <a href="https://www.instagram.com/" target="_blank" rel="noopener" title="Instagram"><img src="https://img.icons8.com/fluency/32/000000/instagram-new.png" alt="Instagram" style="vertical-align:middle;"></a>
+                            <a href="https://www.facebook.com/" target="_blank" rel="noopener" title="Facebook"><img src="https://img.icons8.com/fluency/32/000000/facebook-new.png" alt="Facebook" style="vertical-align:middle;"></a>
+                            <a href="https://wa.me/5511999999999" target="_blank" rel="noopener" title="WhatsApp"><img src="https://img.icons8.com/fluency/32/000000/whatsapp.png" alt="WhatsApp" style="vertical-align:middle;"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-pro-copy">&copy; 2025 Retech. Todos os direitos reservados.</div>
+        </footer>
+    </footer>
+    <script src="contador-carrinho.js"></script>
+</body>
+</html>

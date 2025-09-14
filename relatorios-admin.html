@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relatórios - Admin Retech</title>
+    <link rel="stylesheet" href="relatorios-admin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header id="main-header">
+        <div class="header-top">
+            <a href="index.html" class="brand-link">
+                <img src="Retech.jpeg" class="logo">
+                <span class="brand">Loja <strong>Retech</strong></span>
+            </a>
+        </div>
+        <nav id="main-nav" class="nav-bar" aria-label="Menu principal">
+            <ul>
+                <li><a href="index.html"><i class="fa-solid fa-house"></i> Início</a></li>
+                <li><a href="adm.html"><i class="fa-solid fa-user-shield"></i> Painel Admin</a></li>
+                <li><a href="produtos-admin.html"><i class="fa-solid fa-box"></i> Produtos</a></li>
+                <li><a href="ofertas-admin.html"><i class="fa-solid fa-tags"></i> Ofertas do Dia</a></li>
+                <li><a href="pedidos-admin.html"><i class="fa-solid fa-clipboard-list"></i> Pedidos</a></li>
+                <li><a href="relatorios-admin.html" class="active"><i class="fa-solid fa-chart-line"></i> Relatórios</a></li>
+                <li><a href="Login.html"><i class="fa-solid fa-right-to-bracket"></i> Login</a></li>
+                <li>
+                    <form action="/logout" method="post" style="display:inline;">
+                        <button type="submit" class="btn-sair-nav"><i class="fa-solid fa-arrow-right-from-bracket"></i> Sair</button>
+                    </form>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="admin-section">
+            <h1><i class="fa-solid fa-chart-line"></i> Relatórios</h1>
+            <div class="relatorios-cards">
+                <div style="width:100%;text-align:center;color:#888;font-size:1.08rem;padding:32px 0;">Nenhum dado disponível.</div>
+            </div>
+            <div class="relatorio-grafico">
+                <h3>Vendas por semana</h3>
+                <div style="width:100%;text-align:center;color:#888;font-size:1.08rem;padding:32px 0;">Nenhum gráfico disponível.</div>
+            </div>
+        </section>
+    </main>
+
+    <script src="relatorios-admin.js"></script>
+
+</body>
+</html>

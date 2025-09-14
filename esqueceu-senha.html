@@ -1,0 +1,71 @@
+
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Recuperar Senha - Retech</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        <link rel="stylesheet" href="esqueceu-senha.css">
+        <!-- CSS extraído para style2.css -->
+    </head>
+    <body class="esqueceu-senha">
+        <header id="main-header">
+            <div class="header-top">
+                <img src="Retech.jpeg" alt="Logo Loja Retech" class="logo" tabindex="0">
+                <span class="brand">Loja <strong>Retech</strong></span>
+                <form class="search-bar" action="#" method="get" role="search">
+                    <input type="text" placeholder="Buscar produtos..." name="q" aria-label="Buscar produtos">
+                    <button type="submit" aria-label="Buscar"><span>🔍</span></button>
+                </form>
+                <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="main-nav">
+                    <span class="hamburger"></span>
+                </button>
+            </div>
+            <nav id="main-nav" class="nav-bar" aria-label="Menu principal">
+                <ul>
+                    <li><a href="index.html"><i class="fa-solid fa-house"></i> Início</a></li>
+                    <li><a href="produtos.html"><i class="fa-solid fa-bag-shopping"></i> Produtos</a></li>
+                    <li><a href="contato.html"><i class="fa-solid fa-phone"></i> Contato</a></li>
+                    <li><a href="sobre.html"><i class="fa-solid fa-circle-info"></i> Sobre</a></li>
+                    <li><a href="carrinho.html"><i class="fa-solid fa-cart-shopping"></i> Carrinho</a></li>
+                    <li><a href="Login.html"><i class="fa-solid fa-right-to-bracket"></i> Login</a></li>
+                    <li>
+                        <form action="/logout" method="post" style="display:inline;">
+                            <button type="submit" class="btn-sair-nav" aria-label="Sair">
+                                <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                                <span>Sair</span>
+                            </button>
+                        </form>
+                    </li>
+                </ul>
+            </nav>
+            <a href="https://wa.me/5511999999999" target="_blank" class="whatsapp-btn" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+        </header>
+    <a href="https://wa.me/5511999999999" target="_blank" class="whatsapp-btn" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+        <div class="esqsenha-container">
+            <form class="esqsenha-form" autocomplete="on">
+                <div class="esqsenha-logo-box">
+                    <div class="esqsenha-logo-icn"><i class="fa-solid fa-unlock-keyhole"></i></div>
+                    <span class="esqsenha-logo-text">Retech</span>
+                </div>
+                <h2 class="esqsenha-titulo">Recuperar Senha</h2>
+                <p class="esqsenha-desc">Informe seu e-mail cadastrado para receber as instruções de redefinição de senha.</p>
+                <div class="esqsenha-input-group">
+                    <label for="email" class="esqsenha-label">E-mail</label>
+                    <div class="esqsenha-input-icon-box">
+                        <input type="email" id="email" name="email" placeholder="Digite seu e-mail" required class="esqsenha-input">
+                        <span class="esqsenha-input-icon"><i class="fa-regular fa-envelope"></i></span>
+                    </div>
+                </div>
+                <button type="submit" id="btnEnviar" class="esqsenha-btn">Enviar instruções</button>
+                <div class="esqsenha-links">
+                    <a href="Login.html">Voltar ao login</a>
+                </div>
+                <div id="mensagem" class="esqsenha-msg"></div>
+            </form>
+            <script src="esqueceu-senha.js"></script>
+        </div>
+    </body>
+</html>

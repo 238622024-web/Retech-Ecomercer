@@ -1,0 +1,60 @@
+
+<!doctype html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8">
+  <title>Usuários - Admin Retech</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="usuarios-admin.css">
+  <!-- CSS extraído para style2.css -->
+</head>
+<body class="usuarios-admin">
+  <header id="main-header">
+    <div class="header-top">
+      <a href="index.html" class="brand-link">
+        <img src="Retech.jpeg" class="logo">
+        <span class="brand">Loja <strong>Retech</strong></span>
+      </a>
+    </div>
+    <nav id="main-nav" class="nav-bar" aria-label="Menu principal">
+      <ul>
+        <li><a href="index.html"><i class="fa-solid fa-house"></i> Início</a></li>
+        <li><a href="adm.html"><i class="fa-solid fa-user-shield"></i> Painel Admin</a></li>
+        <li><a href="produtos-admin.html"><i class="fa-solid fa-box"></i> Produtos</a></li>
+        <li><a href="ofertas-admin.html"><i class="fa-solid fa-tags"></i> Ofertas do Dia</a></li>
+        <li><a href="usuarios-admin.html" class="active"><i class="fa-solid fa-users"></i> Usuários</a></li>
+        <li><a href="relatorios-admin.html"><i class="fa-solid fa-chart-line"></i> Relatórios</a></li>
+        <li><a href="pedidos-admin.html"><i class="fa-solid fa-box"></i> Pedidos</a></li>
+        <li>
+          <form action="/logout" method="post" style="display:inline;">
+            <button type="submit" class="btn-sair-nav"><i class="fa-solid fa-arrow-right-from-bracket"></i> Sair</button>
+          </form>
+        </li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <section class="admin-container">
+      <h2 class="ofertas-titulo">Usuários Cadastrados</h2>
+      <table class="usuarios-table">
+        <thead>
+          <tr>
+            <th>Nome</th>
+            <th>Email</th>
+            <th>Tipo</th>
+            <th>Status</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td colspan="5" style="text-align:center; color:#888; padding:32px 0;">Nenhum usuário cadastrado.</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  </main>
+  <!-- Rodapé removido para padronização admin -->
+</body>
+</html>

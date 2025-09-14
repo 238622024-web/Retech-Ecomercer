@@ -1,0 +1,90 @@
+.admin-container {
+            max-width: 1100px;
+            margin: 40px auto 0 auto;
+            background: #fff;
+            border-radius: 16px;
+            box-shadow: 0 4px 32px #232f3e22;
+            padding: 40px 32px 32px 32px;
+        }
+        .admin-title {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: #232f3e;
+            margin-bottom: 18px;
+            text-align: center;
+        }
+        .admin-menu {
+            display: flex;
+            gap: 32px;
+            justify-content: center;
+            margin-bottom: 32px;
+        }
+        .admin-menu a {
+            background: #232f3e;
+            color: #ffd814;
+            padding: 14px 32px;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            text-decoration: none;
+            transition: background 0.2s, color 0.2s, transform 0.2s;
+            box-shadow: 0 2px 8px #232f3e22;
+        }
+        .admin-menu a:hover {
+            background: #ffd814;
+            color: #232f3e;
+            transform: scale(1.05);
+        }
+        .admin-welcome {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #232f3e;
+            margin-bottom: 24px;
+        }
+        .admin-section {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 32px;
+            justify-content: center;
+        }
+        .admin-card {
+            background: #f5f6fa;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px #232f3e11;
+            padding: 32px 28px;
+            min-width: 260px;
+            max-width: 320px;
+            flex: 1 1 260px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: box-shadow 0.2s, transform 0.2s;
+        }
+        .admin-card i {
+            font-size: 2.5rem;
+            color: #ffd814;
+            margin-bottom: 16px;
+        }
+        .admin-card h3 {
+            color: #232f3e;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+        .admin-card p {
+            color: #232f3e;
+            font-size: 1rem;
+            text-align: center;
+        }
+        .admin-card:hover {
+            box-shadow: 0 4px 16px #232f3e22;
+            transform: translateY(-4px) scale(1.03);
+        }
+        @media (max-width: 900px) {
+            .admin-section {
+                flex-direction: column;
+                gap: 18px;
+            }
+            .admin-container {
+                padding: 24px 8px 18px 8px;
+            }
+        }

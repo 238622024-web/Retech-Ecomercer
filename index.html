@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8">
+    <title>Loja Retech</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="index.css">
+    <link rel="icon" type="image/png" href="Retech.jpeg">
+</head>
+<body>
+    <header id="main-header">
+        <div class="header-top">
+            <img src="Retech.jpeg" alt="Logo Loja Retech" class="logo" tabindex="0">
+            <span class="brand">Loja <strong>Retech</strong></span>
+            <form class="search-bar" action="#" method="get" role="search">
+                <input type="text" placeholder="Buscar produtos..." name="q" aria-label="Buscar produtos">
+                <button type="submit" aria-label="Buscar"><span>🔍</span></button>
+            </form>
+            <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="main-nav">
+                <span class="hamburger"></span>
+            </button>
+        </div>
+        <nav id="main-nav" class="nav-bar" aria-label="Menu principal">
+            <ul>
+                <li><a href="index.html"><i class="fa-solid fa-house"></i> Início</a></li>
+                <li><a href="produtos.html"><i class="fa-solid fa-bag-shopping"></i> Produtos</a></li>
+                <li><a href="contato.html"><i class="fa-solid fa-phone"></i> Contato</a></li>
+                <li><a href="sobre.html"><i class="fa-solid fa-circle-info"></i> Sobre</a></li>
+                <li><a href="carrinho.html"><i class="fa-solid fa-cart-shopping"></i> Carrinho</a></li>
+                <li><a href="Login.html"><i class="fa-solid fa-right-to-bracket"></i> Login</a></li>
+                <li>
+                    <form action="/logout" method="post" style="display:inline;">
+                        <button type="submit" class="btn-sair-nav" aria-label="Sair">
+                            <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                            <span>Sair</span>
+                        </button>
+                    </form>
+                </li>
+            </ul>
+        </nav>
+        <a href="https://wa.me/5511999999999" target="_blank" class="whatsapp-btn" style="position:fixed;bottom:24px;right:24px;z-index:9999;background:#25d366;color:#fff;padding:16px 20px;border-radius:50%;box-shadow:0 2px 12px rgba(0,0,0,0.18);font-size:2rem;display:flex;align-items:center;justify-content:center;" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+    </header>
+    <main>
+        <!-- Carrossel de Banners Moderno -->
+        <section class="carrossel-container">
+            <div class="carrossel" id="carrossel">
+                <div class="carrossel-slide active">
+                    <img src="https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=1200&q=80" alt="Tecnologia e Estilo" />
+                    <div class="carrossel-caption">
+                        <h2>Tecnologia e Estilo</h2>
+                        <p>Os melhores gadgets e acessórios para o seu dia a dia.</p>
+                        <a href="produtos.html" class="btn-comprar">Ver Produtos</a>
+                    </div>
+                </div>
+                <div class="carrossel-slide">
+                    <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80" alt="Moda Urbana Premium" />
+                    <div class="carrossel-caption">
+                        <h2>Moda Urbana Premium</h2>
+                        <p>Roupas e acessórios com design moderno e confortável.</p>
+                        <a href="produtos.html" class="btn-comprar">Ver Produtos</a>
+                    </div>
+                </div>
+                <div class="carrossel-slide">
+                    <img src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=1200&q=80" alt="Acessórios Inteligentes" />
+                    <div class="carrossel-caption">
+                        <h2>Acessórios Inteligentes</h2>
+                        <p>Funcionalidade, inovação e estilo para todos os momentos.</p>
+                        <a href="produtos.html" class="btn-comprar">Ver Produtos</a>
+                    </div>
+                </div>
+                <button class="carrossel-btn prev" type="button"><i class="fa-solid fa-chevron-left"></i></button>
+                <button class="carrossel-btn next" type="button"><i class="fa-solid fa-chevron-right"></i></button>
+                <div class="carrossel-indicadores">
+                    <span class="indicador active"></span>
+                    <span class="indicador"></span>
+                    <span class="indicador"></span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Banner institucional visual -->
+        <section class="banner-institucional">
+            <div class="banner-content">
+                <h1>Bem-vindo à Loja Retech</h1>
+                <p>O melhor da moda, tecnologia e acessórios em um só lugar.<br>Produtos selecionados, entrega rápida e atendimento de qualidade para você!</p>
+                <a href="produtos.html" class="btn-comprar-grande">Quero Conhecer</a>
+            </div>
+        </section>
+
+        <!-- Ofertas do Dia -->
+        <section class="ofertas-dia-container">
+                        <h2 class="ofertas-titulo"><i class="fa-solid fa-bolt"></i> Ofertas do Dia</h2>
+                        <div class="ofertas-cards" id="ofertas-cards"></div>
+                        <!-- JS extraído para main.js -->
+        </section>
+
+        <!-- Seção institucional e chamada para ação -->
+        <section class="institucional-container">
+            <div class="institucional-content">
+                <h2 class="institucional-titulo">
+                    <i class="fa-solid fa-star" style="color:#ffd814;margin-right:10px;"></i>
+                    Por que escolher a Retech?
+                </h2>
+                <p class="institucional-desc">
+                    A Retech oferece uma experiência de compra premium: entrega ágil, segurança total, ofertas exclusivas e um atendimento que realmente resolve.<br>
+                    Compre com tranquilidade e sinta a diferença!
+                </p>
+                <ul class="beneficios-lista">
+                    <li><i class="fa-solid fa-truck-fast"></i> Entrega <strong>super rápida</strong> para todo o Brasil</li>
+                    <li><i class="fa-solid fa-shield-halved"></i> <strong>Segurança máxima</strong> em todas as compras</li>
+                    <li><i class="fa-solid fa-percent"></i> <strong>Ofertas e vantagens exclusivas</strong> para você</li>
+                    <li><i class="fa-solid fa-headset"></i> Suporte <strong>humanizado, ágil e eficiente</strong></li>
+                </ul>
+            </div>
+        </section>
+    </main>
+    
+   
+        <!-- Depoimentos de clientes -->
+        <section class="depoimentos-container">
+            <h2>O que nossos clientes dizem</h2>
+            <div class="depoimentos-grid">
+                <div class="depoimento-item">
+                    <p>"Entrega super rápida e produto de qualidade! Recomendo muito a Retech."</p>
+                    <span>- Maria S.</span>
+                </div>
+                <div class="depoimento-item">
+                    <p>"Atendimento excelente, tiraram todas as minhas dúvidas. Voltarei a comprar!"</p>
+                    <span>- João P.</span>
+                </div>
+                <div class="depoimento-item">
+                    <p>"Promoções de verdade e site fácil de navegar. Adorei minha experiência!"</p>
+                    <span>- Ana L.</span>
+                </div>
+            </div>
+        </section>
+    <footer class="footer-content">
+        <footer class="footer-retech-pro">
+            <div class="footer-pro-container">
+                <div class="footer-pro-row">
+                    <div class="footer-pro-col">
+                        <img src="Retech.jpeg" alt="Logo Retech" style="height:44px;border-radius:8px;margin-bottom:10px;">
+                        <p style="color:#ccc;font-size:1rem;max-width:220px;line-height:1.5;">Tecnologia, confiança e atendimento de excelência para você comprar com tranquilidade.</p>
+                    </div>
+                    <div class="footer-pro-col">
+                        <h4>Institucional</h4>
+                        <ul>
+                            <li><a href="sobre.html">Sobre nós</a></li>
+                            <li><a href="#">Política de Privacidade</a></li>
+                            <li><a href="#">Termos de Uso</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-pro-col">
+                        <h4>Atendimento</h4>
+                        <ul>
+                            <li><a href="contato.html">Fale Conosco</a></li>
+                            <li><a href="#">Trocas e Devoluções</a></li>
+                            <li><a href="#">Perguntas Frequentes</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-pro-col">
+                        <h4>Pagamento Seguro</h4>
+                        <div class="footer-pagamentos">
+                            <img src="https://img.icons8.com/color/32/000000/visa.png" alt="Visa" title="Visa">
+                            <img src="https://img.icons8.com/color/32/000000/mastercard-logo.png" alt="Mastercard" title="Mastercard">
+                            <img src="https://img.icons8.com/color/32/000000/amex.png" alt="Amex" title="American Express">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Elo_card_logo.png/120px-Elo_card_logo.png" alt="Elo" title="Elo" style="height:32px;width:auto;background:#fff;border-radius:4px;padding:2px;">
+                            <img src="https://img.icons8.com/color/32/000000/pix.png" alt="Pix" title="Pix">
+                            <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Boleto" title="Boleto" style="height:32px;width:auto;background:#fff;border-radius:4px;padding:2px;">
+                        </div>
+                        <div class="footer-selo">
+                            <img src="https://img.icons8.com/fluency/32/000000/lock-2.png" alt="Site Seguro" title="Site Seguro">
+                            <span>Ambiente 100% Seguro</span>
+                        </div>
+                    </div>
+                    <div class="footer-pro-col footer-pro-social">
+                        <h4>Redes Sociais</h4>
+                        <div class="footer-social">
+                            <a href="https://www.instagram.com/" target="_blank" rel="noopener" title="Instagram"><img src="https://img.icons8.com/fluency/32/000000/instagram-new.png" alt="Instagram" style="vertical-align:middle;"></a>
+                            <a href="https://www.facebook.com/" target="_blank" rel="noopener" title="Facebook"><img src="https://img.icons8.com/fluency/32/000000/facebook-new.png" alt="Facebook" style="vertical-align:middle;"></a>
+                            <a href="https://wa.me/5511999999999" target="_blank" rel="noopener" title="WhatsApp"><img src="https://img.icons8.com/fluency/32/000000/whatsapp.png" alt="WhatsApp" style="vertical-align:middle;"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-pro-copy">&copy; 2025 Retech. Todos os direitos reservados.</div>
+        </footer>
+    <!-- JS extraído para main.js -->
+    <script src="main.js"></script>
+    <script src="contador-carrinho.js"></script>
+</body>
+</html>

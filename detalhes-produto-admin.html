@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalhes do Produto - Admin Retech</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        <link rel="stylesheet" href="detalhes-produto-admin.css">
+    <section id="pedidosProduto" style="margin-top:32px;">
+        <h3>📦 Pedidos com este Produto</h3>
+        <table id="tabelaPedidosProduto" border="1" cellspacing="0" cellpadding="8" 
+                style="width:100%;border-radius:8px;box-shadow:0 2px 8px #232f3e22;">
+            <thead style="background:#232f3e;color:#ffd814;">
+            <tr>
+                <th>ID Pedido</th>
+                <th>Usuário</th>
+                <th>Qtd</th>
+                <th>Pagamento</th>
+                <th>Data</th>
+            </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </section>
+
+    <header>
+        <div class="header-top">
+            <img src="Retech.jpeg" alt="Logo Loja Retech" class="logo">
+            <span class="brand">Loja <strong>Retech</strong></span>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html"><i class="fa-solid fa-house"></i> Inicio</a></li>
+                <li><a href="adm.html"><i class="fa-solid fa-user-shield"></i> Painel Admin</a></li>
+                <li><a href="produtos-admin.html" class="active"><i class="fa-solid fa-box"></i> Produtos</a></li>
+                <li>
+                    <form action="/logout" method="post" style="display:inline;">
+                        <button type="submit" class="perfil-sair-nav"><i class="fa-solid fa-arrow-right-from-bracket"></i> Sair</button>
+                    </form>
+                </li>
+            </ul>
+        <div class="detalhes-produto-admin">
+            <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=400&q=80" alt="Camiseta">
+            <div class="detalhes-info">
+                <h2>Camiseta</h2>
+                <div class="categoria"><i class="fa-solid fa-tag"></i> Roupas</div>
+                <div class="preco"><i class="fa-solid fa-dollar-sign"></i> R$ 49,90</div>
+                <div class="estoque"><i class="fa-solid fa-boxes-stacked"></i> Estoque: 20</div>
+                <div class="descricao">Camiseta confortável de algodão premium. Ideal para o dia a dia e looks casuais.</div>
+                <a href="produtos-admin.html" class="voltar-btn"><i class="fa-solid fa-arrow-left"></i> Voltar</a>
+            </div>
+        </div>
+    </main>
+    <script>
+        async function carregarPedidosDoProduto(produtoId, produtoNome) {
+        const resp = await fetch("http://localhost:3000/api/pedidos");
+        const pedidos = await resp.json();
+
+        const tbody = document.querySelector("#tabelaPedidosProduto tbody");
+        tbody.innerHTML = "";
+
+        pedidos.forEach(p => {
+            // procura se este produto está nos itens do pedido
+            const item = p.itens.find(i => i.id == produtoId || i.nome === produtoNome);
+            if (item) {
+            const tr = document.createElement("tr");
+            tr.innerHTML = `
+                <td>${p.id}</td>
+                <td>${p.usuario}</td>
+                <td>${item.qtd}</td>
+                <td>${p.pagamento}</td>
+                <td>${new Date(p.data).toLocaleString("pt-BR")}</td>
+            `;
+            tbody.appendChild(tr);
+            }
+        });
+
+        if (!tbody.hasChildNodes()) {
+            tbody.innerHTML = `<tr><td colspan="5" style="text-align:center;">Nenhum pedido encontrado com este produto.</td></tr>`;
+        }
+        }
+
+        // 🔹 Ajuste conforme sua página: aqui eu pego o nome do produto do <h2>
+        window.addEventListener("DOMContentLoaded", () => {
+        const produtoNome = document.querySelector(".detalhes-info h2")?.innerText.trim();
+        const produtoId = new URLSearchParams(window.location.search).get("id"); 
+        carregarPedidosDoProduto(produtoId, produtoNome);
+        });
+        async function carregarPedidosDoProduto(produtoId) {
+        const resp = await fetch(`http://localhost:3000/api/pedidos/produto/${produtoId}`);
+        const pedidos = await resp.json();
+
+        const tbody = document.querySelector("#tabelaPedidosProduto tbody");
+        tbody.innerHTML = "";
+
+        pedidos.forEach(p => {
+            const tr = document.createElement("tr");
+            tr.innerHTML = `
+            <td>${p.idPedido}</td>
+            <td>${p.usuario}</td>
+            <td>${p.qtd}</td>
+            <td>${p.pagamento}</td>
+            <td>${new Date(p.data).toLocaleString("pt-BR")}</td>
+            `;
+            tbody.appendChild(tr);
+        });
+
+        if (!tbody.hasChildNodes()) {
+            tbody.innerHTML = `<tr><td colspan="5" style="text-align:center;">Nenhum pedido encontrado com este produto.</td></tr>`;
+        }
+        }
+
+        // Pega o id da URL (?id=123) e carrega
+        window.addEventListener("DOMContentLoaded", () => {
+        const produtoId = new URLSearchParams(window.location.search).get("id");
+        if (produtoId) carregarPedidosDoProduto(produtoId);
+        });
+    </script>
+
+</body>
+</html>

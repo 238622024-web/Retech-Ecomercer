@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <!-- CSS extraído para style2.css -->
+    <meta charset="utf-8">
+    <title>Detalhes do Produto - Loja Retech</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="detalhes-produto">
+    <header>
+        <div class="header-top">
+            <img src="Retech.jpeg" alt="Logo Loja Retech" class="logo">
+            <span class="brand">Loja <strong>Retech</strong></span>
+            <form class="search-bar" action="#" method="get">
+                <input type="text" placeholder="Buscar produtos..." name="q">
+                <button type="submit"><span>🔍</span></button>
+            </form>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html"><i class="fa-solid fa-house"></i> Inicio</a></li>
+                <li><a href="produtos.html"><i class="fa-solid fa-bag-shopping"></i> Produtos</a></li>
+                <li><a href="#"><i class="fa-solid fa-phone"></i> Contato</a></li>
+                <li><a href="#"><i class="fa-solid fa-circle-info"></i> Sobre</a></li>
+                <li><a href="carrinho.html"><i class="fa-solid fa-cart-shopping"></i> Carrinho</a></li>
+                <li><a href="Login.html"><i class="fa-solid fa-right-to-bracket"></i> Login</a></li>
+                <li><a href="Cadastre-se.html"><i class="fa-solid fa-user-plus"></i> Cadastro</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="produto-detalhe-main">
+            <div class="produto-galeria">
+                    <img id="img-principal" src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=400&q=80" alt="Camiseta">
+                    <div id="toast-notificacao" style="display:none;position:fixed;bottom:32px;right:32px;z-index:9999;background:#222;color:#fff;padding:16px 32px;border-radius:8px;box-shadow:0 2px 16px rgba(0,0,0,0.18);font-size:1.1rem;transition:all .3s;opacity:0;pointer-events:none;"></div>
+                <div class="miniaturas">
+                    <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=400&q=80" alt="Camiseta" class="selecionada">
+                    <img src="https://images.unsplash.com/photo-1519864600265-abb23847ef2c?auto=format&fit=crop&w=400&q=80" alt="Camiseta lateral">
+                    <img src="https://images.unsplash.com/photo-1514995669114-d1c1b7a83a48?auto=format&fit=crop&w=400&q=80" alt="Detalhe tecido">
+                </div>
+            </div>
+            <div class="produto-info">
+                <h2 class="produto-nome">Camiseta Premium</h2>
+                <p class="produto-desc">Camiseta confortável, 100% algodão, perfeita para o dia a dia. Disponível em várias cores e tamanhos.</p>
+                <div class="produto-preco">R$ 49,90</div>
+                <div class="produto-opcoes">
+                    <label for="tamanho">Tamanho:</label>
+                    <select id="tamanho">
+                        <option>P</option>
+                        <option>M</option>
+                        <option>G</option>
+                        <option>GG</option>
+                    </select>
+                </div>
+                <div class="produto-opcoes">
+                    <label for="cor">Cor:</label>
+                    <select id="cor">
+                        <option>Branca</option>
+                        <option>Preta</option>
+                        <option>Azul</option>
+                        <option>Vermelha</option>
+                    </select>
+                </div>
+                <div class="produto-acoes">
+                    <button class="btn-carrinho"><i class="fa-solid fa-cart-plus"></i> Adicionar ao carrinho</button>
+                    <button class="btn-favorito" id="btnFavorito"><i class="fa-regular fa-heart"></i> Favoritar</button>
+                </div>
+            </div>
+        </div>
+        <div class="toast" id="toast"></div>
+        <section style="max-width:900px; margin:0 auto 40px auto; background:#f5f6fa; border-radius:12px; box-shadow:0 1px 8px #232f3e11; padding:32px 32px 24px 32px;">
+            <h3 style="color:#232f3e; font-size:1.3rem; margin-bottom:18px;">Avaliações dos clientes</h3>
+            <div class="avaliacoes-lista">
+                <div style="margin-bottom:16px;">
+                    <strong>Maria S.</strong> <span style="color:#ffd814;">★★★★★</span>
+                    <p style="margin:4px 0 0 0; color:#444;">Produto excelente, chegou rápido e veste super bem!</p>
+                </div>
+                <div style="margin-bottom:16px;">
+                    <strong>João P.</strong> <span style="color:#ffd814;">★★★★☆</span>
+                    <p style="margin:4px 0 0 0; color:#444;">Gostei muito, só achei a malha um pouco fina.</p>
+                </div>
+                <div>
+                    <strong>Ana L.</strong> <span style="color:#ffd814;">★★★★★</span>
+                    <p style="margin:4px 0 0 0; color:#444;">Ótimo custo-benefício, recomendo!</p>
+                </div>
+            </div>
+            <form id="formAvaliacao" style="margin-top:24px;">
+                <h4 style="margin-bottom:8px;">Deixe sua avaliação:</h4>
+                <input type="text" id="nomeAvaliador" placeholder="Seu nome" required style="padding:6px 12px; border-radius:6px; border:1px solid #ccc; margin-bottom:8px; width:220px;">
+                <select id="notaAvaliacao" required style="padding:6px 12px; border-radius:6px; border:1px solid #ccc; margin-bottom:8px;">
+                    <option value="5">★★★★★</option>
+                    <option value="4">★★★★☆</option>
+                    <option value="3">★★★☆☆</option>
+                    <option value="2">★★☆☆☆</option>
+                    <option value="1">★☆☆☆☆</option>
+                </select>
+                <textarea id="textoAvaliacao" placeholder="Comentário" required style="padding:6px 12px; border-radius:6px; border:1px solid #ccc; margin-bottom:8px; width:100%; min-height:60px;"></textarea>
+                <button type="submit" style="background:#007bff;color:#fff;border:none;border-radius:6px;padding:10px 22px;font-size:1rem;font-weight:600;cursor:pointer;">Enviar Avaliação</button>
+            </form>
+        </section>
+    </main>
+                <a href="https://wa.me/5511999999999" target="_blank" class="whatsapp-btn" style="position:fixed;bottom:24px;right:24px;z-index:9999;background:#25d366;color:#fff;padding:16px 20px;border-radius:50%;box-shadow:0 2px 12px rgba(0,0,0,0.18);font-size:2rem;display:flex;align-items:center;justify-content:center;"><i class="fa-brands fa-whatsapp"></i></a>
+    <footer class="footer-retech-pro">
+        <div class="footer-pro-container">
+            <div class="footer-pro-row">
+                <div class="footer-pro-col">
+                    <img src="Retech.jpeg" alt="Logo Retech" style="height:44px;border-radius:8px;margin-bottom:10px;">
+                    <p style="color:#ccc;font-size:1rem;max-width:220px;line-height:1.5;">Tecnologia, confiança e atendimento de excelência para você comprar com tranquilidade.</p>
+                </div>
+                <div class="footer-pro-col">
+                    <h4>Institucional</h4>
+                    <ul>
+                        <li><a href="sobre.html">Sobre nós</a></li>
+                        <li><a href="#">Política de Privacidade</a></li>
+                        <li><a href="#">Termos de Uso</a></li>
+                    </ul>
+                </div>
+                <div class="footer-pro-col">
+                    <h4>Atendimento</h4>
+                    <ul>
+                        <li><a href="contato.html">Fale Conosco</a></li>
+                        <li><a href="#">Trocas e Devoluções</a></li>
+                        <li><a href="#">Perguntas Frequentes</a></li>
+                    </ul>
+                </div>
+                <div class="footer-pro-col">
+                    <h4>Pagamento Seguro</h4>
+                    <div class="footer-pagamentos">
+                        <img src="https://img.icons8.com/color/32/000000/visa.png" alt="Visa" title="Visa">
+                        <img src="https://img.icons8.com/color/32/000000/mastercard-logo.png" alt="Mastercard" title="Mastercard">
+                        <img src="https://img.icons8.com/color/32/000000/amex.png" alt="Amex" title="American Express">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Elo_card_logo.png/120px-Elo_card_logo.png" alt="Elo" title="Elo" style="height:32px;width:auto;background:#fff;border-radius:4px;padding:2px;">
+                        <img src="https://img.icons8.com/color/32/000000/pix.png" alt="Pix" title="Pix">
+                        <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Boleto" title="Boleto" style="height:32px;width:auto;background:#fff;border-radius:4px;padding:2px;">
+                    </div>
+                    <div class="footer-selo">
+                        <img src="https://img.icons8.com/fluency/32/000000/lock-2.png" alt="Site Seguro" title="Site Seguro">
+                        <span>Ambiente 100% Seguro</span>
+                    </div>
+                </div>
+                <div class="footer-pro-col footer-pro-social">
+                    <h4>Redes Sociais</h4>
+                    <div class="footer-social">
+                        <a href="https://www.instagram.com/" target="_blank" rel="noopener" title="Instagram"><img src="https://img.icons8.com/fluency/32/000000/instagram-new.png" alt="Instagram" style="vertical-align:middle;"></a>
+                        <a href="https://www.facebook.com/" target="_blank" rel="noopener" title="Facebook"><img src="https://img.icons8.com/fluency/32/000000/facebook-new.png" alt="Facebook" style="vertical-align:middle;"></a>
+                        <a href="https://wa.me/5511999999999" target="_blank" rel="noopener" title="WhatsApp"><img src="https://img.icons8.com/fluency/32/000000/whatsapp.png" alt="WhatsApp" style="vertical-align:middle;"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-pro-copy">&copy; 2025 Retech. Todos os direitos reservados.</div>
+    </footer>
+
+    <script src="detalhes-produto.js"></script>
+</body>
+</html>

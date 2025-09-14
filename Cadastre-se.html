@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="Cadastre-se.css">
+    <title>Cadastro - Retech</title>
+    <link rel="icon" type="image/png" href="Retech.jpeg">
+  </head>
+  <body>
+    <header id="main-header">
+      <div class="header-top">
+        <img src="Retech.jpeg" alt="Logo Loja Retech" class="logo" tabindex="0">
+        <span class="brand">Loja <strong>Retech</strong></span>
+        <form class="search-bar" action="#" method="get" role="search">
+          <input type="text" placeholder="Buscar produtos..." name="q" aria-label="Buscar produtos">
+          <button type="submit" aria-label="Buscar"><span>🔍</span></button>
+        </form>
+        <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="main-nav">
+          <span class="hamburger"></span>
+        </button>
+      </div>
+      <nav id="main-nav" class="nav-bar" aria-label="Menu principal">
+        <ul>
+          <li><a href="index.html"><i class="fa-solid fa-house"></i> Início</a></li>
+          <li><a href="produtos.html"><i class="fa-solid fa-bag-shopping"></i> Produtos</a></li>
+          <li><a href="contato.html"><i class="fa-solid fa-phone"></i> Contato</a></li>
+          <li><a href="sobre.html"><i class="fa-solid fa-circle-info"></i> Sobre</a></li>
+          <li><a href="carrinho.html"><i class="fa-solid fa-cart-shopping"></i> Carrinho</a></li>
+          <li><a href="Login.html"><i class="fa-solid fa-right-to-bracket"></i> Login</a></li>
+          <li>
+            <form action="/logout" method="post" style="display:inline;">
+              <button type="submit" class="btn-sair-nav" aria-label="Sair">
+                <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                <span>Sair</span>
+              </button>
+            </form>
+          </li>
+        </ul>
+      </nav>
+      <a href="https://wa.me/5511999999999" target="_blank" class="whatsapp-btn" style="position:fixed;bottom:24px;right:24px;z-index:9999;background:#25d366;color:#fff;padding:16px 20px;border-radius:50%;box-shadow:0 2px 12px rgba(0,0,0,0.18);font-size:2rem;display:flex;align-items:center;justify-content:center;" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+    </header>
+    <div class="cadastro-split-container">
+    <a href="https://wa.me/5511999999999" target="_blank" class="whatsapp-btn" style="position:fixed;bottom:24px;right:24px;z-index:9999;background:#25d366;color:#fff;padding:16px 20px;border-radius:50%;box-shadow:0 2px 12px rgba(0,0,0,0.18);font-size:2rem;display:flex;align-items:center;justify-content:center;"><i class="fa-brands fa-whatsapp"></i></a>
+      <div class="cadastro-box-container">
+        <div class="cadastro-image-side">
+          <img src="Retech.jpeg" alt="Logo Retech" class="cadastro-logo-big">
+          <h1 class="empresa-nome">Retech</h1>
+          <p class="empresa-desc">Crie sua conta para aproveitar todas as vantagens.</p>
+        </div>
+        <div class="cadastro-form-side">
+          <form class="cadastro-form" autocomplete="on">
+            <h2>Cadastre-se</h2>
+            <label for="nome">Nome</label>
+            <div class="input-group">
+              <input type="text" id="nome" name="nome" placeholder="Digite seu nome" required>
+              <i class="fa-solid fa-user input-icon"></i>
+            </div>
+            <label for="email">E-mail</label>
+            <div class="input-group">
+              <input type="email" id="email" name="email" placeholder="Digite seu e-mail" required>
+              <i class="fa-solid fa-envelope input-icon"></i>
+            </div>
+            <label for="telefone">Telefone</label>
+            <div class="input-group">
+              <input type="tel" id="telefone" name="telefone" placeholder="(99) 99999-9999" pattern="\(\d{2}\) \d{5}-\d{4}" required>
+              <i class="fa-solid fa-phone input-icon"></i>
+            </div>
+            <label for="nascimento">Data de Nascimento</label>
+            <div class="input-group">
+              <input type="date" id="nascimento" name="nascimento" required>
+              <i class="fa-solid fa-calendar input-icon"></i>
+            </div>
+            <label for="genero">Gênero</label>
+            <div class="input-group">
+              <select id="genero" name="genero" required>
+                <option value="">Selecione</option>
+                <option value="masculino">Masculino</option>
+                <option value="feminino">Feminino</option>
+                <option value="outro">Outro</option>
+                <option value="nao-informar">Prefiro não informar</option>
+              </select>
+              <i class="fa-solid fa-venus-mars input-icon"></i>
+            </div>
+            <label for="senha">Senha</label>
+            <div class="input-group">
+              <input type="password" id="senha" name="senha" placeholder="Crie uma senha" required>
+              <i class="fa-solid fa-lock input-icon"></i>
+            </div>
+            <label for="confirmar">Confirmar Senha</label>
+            <div class="input-group">
+              <input type="password" id="confirmar" name="confirmar" placeholder="Confirme sua senha" required>
+              <i class="fa-solid fa-lock input-icon"></i>
+            </div>
+            <div class="cadastro-termos-box">
+              <input type="checkbox" id="termos" name="termos" required>
+              <label for="termos" class="cadastro-termos-label">Li e aceito os <a href="#" class="cadastro-termos-link">Termos de Uso</a></label>
+            </div>
+            <button type="submit" class="cadastro-btn">Cadastrar</button>
+            <div id="cadastro-alerta" class="cadastro-alerta"></div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
+<script>
+// Adiciona ícones nos campos do formulário
+window.addEventListener('DOMContentLoaded', function() {
+  const icons = {
+    nome: 'fa-user',
+    email: 'fa-envelope',
+    telefone: 'fa-phone',
+    nascimento: 'fa-calendar',
+    genero: 'fa-venus-mars',
+    senha: 'fa-lock',
+    confirmar: 'fa-lock',
+  };
+  Object.keys(icons).forEach(id => {
+    const input = document.getElementById(id);
+    if(input) {
+      const group = document.createElement('div');
+      group.className = 'input-group';
+      input.parentNode.insertBefore(group, input);
+      group.appendChild(input);
+      const icon = document.createElement('i');
+      icon.className = `fa-solid ${icons[id]} input-icon`;
+      group.appendChild(icon);
+    }
+  });
+});
+
+document.querySelector('.cadastro-form').addEventListener('submit', async function(e) {
+  e.preventDefault();
+  const nome = document.getElementById('nome').value;
+  const email = document.getElementById('email').value;
+  const telefone = document.getElementById('telefone').value;
+  const nascimento = document.getElementById('nascimento').value;
+  const genero = document.getElementById('genero').value;
+  const senha = document.getElementById('senha').value;
+  const confirmar = document.getElementById('confirmar').value;
+  const alerta = document.getElementById('cadastro-alerta');
+
+  alerta.className = 'cadastro-alerta';
+  alerta.style.display = 'none';
+  alerta.style.opacity = '0';
+
+  if (senha !== confirmar) {
+    alerta.textContent = '❌ As senhas não coincidem!';
+    alerta.classList.add('error', 'show');
+    alerta.style.display = 'block';
+    setTimeout(()=>{ alerta.style.opacity = '1'; }, 10);
+    return;
+  }
+
+  try {
+    const res = await fetch('/api/usuarios', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ nome, email, telefone, nascimento, genero, senha })
+    });
+    const data = await res.json();
+    if (res.ok) {
+      alerta.textContent = '✔️ Usuário cadastrado com sucesso! Redirecionando para o login...';
+      alerta.classList.remove('error');
+      alerta.classList.add('show');
+      alerta.style.display = 'block';
+      setTimeout(()=>{ alerta.style.opacity = '1'; }, 10);
+      setTimeout(()=>{ window.location.href = '/Login.html'; }, 1800);
+    } else {
+      alerta.textContent = `❌ ${data.mensagem || 'Erro ao cadastrar usuário'}`;
+      alerta.classList.add('error', 'show');
+      alerta.style.display = 'block';
+      setTimeout(()=>{ alerta.style.opacity = '1'; }, 10);
+    }
+  } catch (err) {
+    alerta.textContent = '❌ Erro de conexão. Tente novamente.';
+    alerta.classList.add('error', 'show');
+    alerta.style.display = 'block';
+    setTimeout(()=>{ alerta.style.opacity = '1'; }, 10);
+  }
+});
+</script>

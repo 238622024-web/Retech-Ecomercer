@@ -1,0 +1,113 @@
+/* CSS exclusivo para detalhes-produto-admin.html */
+.detalhes-produto-admin {
+    max-width: 700px;
+    margin: 40px auto;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 4px 32px #232f3e22;
+    padding: 40px 32px;
+    display: flex;
+    gap: 32px;
+    align-items: flex-start;
+}
+.detalhes-produto-admin img {
+    width: 220px;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 12px;
+    border: 1px solid #d1d5db;
+}
+.detalhes-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+.detalhes-info h2 {
+    color: #232f3e;
+    font-size: 1.6rem;
+    margin-bottom: 8px;
+}
+.detalhes-info .categoria {
+    color: #b12704;
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+.detalhes-info .preco {
+    color: #059669;
+    font-size: 1.3rem;
+    font-weight: 700;
+}
+.detalhes-info .estoque {
+    color: #232f3e;
+    font-size: 1.1rem;
+}
+.detalhes-info .descricao {
+    color: #444;
+    font-size: 1rem;
+    margin-top: 10px;
+}
+.voltar-btn {
+    display: inline-block;
+    margin-top: 24px;
+    background: #232f3e;
+    color: #ffd814;
+    border-radius: 8px;
+    padding: 10px 24px;
+    text-decoration: none;
+    font-weight: 700;
+    transition: background 0.2s, color 0.2s, transform 0.2s;
+}
+.detalhes-produto-admin img {
+    width: 220px;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 12px;
+    border: 1px solid #d1d5db;
+}
+.detalhes-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+.detalhes-info h2 {
+    color: #232f3e;
+    font-size: 1.6rem;
+    margin-bottom: 8px;
+}
+.detalhes-info .categoria {
+    color: #b12704;
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+.detalhes-info .preco {
+    color: #059669;
+    font-size: 1.3rem;
+    font-weight: 700;
+}
+.detalhes-info .estoque {
+    color: #232f3e;
+    font-size: 1.1rem;
+}
+.detalhes-info .descricao {
+    color: #444;
+    font-size: 1rem;
+    margin-top: 10px;
+}
+.voltar-btn {
+    display: inline-block;
+    margin-top: 24px;
+    background: #232f3e;
+    color: #ffd814;
+    border-radius: 8px;
+    padding: 10px 24px;
+    text-decoration: none;
+    font-weight: 700;
+    transition: background 0.2s, color 0.2s, transform 0.2s;
+}
+.voltar-btn:hover {
+    background: #ffd814;
+    color: #232f3e;
+    transform: scale(1.05);
+}
